@@ -1,0 +1,46 @@
+# Environment files — ห้าม commit secrets ขึ้น git เด็ดขาด
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.next/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Prisma - redundant/generated files
+backend/prisma/seed-diseases.ts
+backend/prisma/clean-hospital-names.ts
+backend/prisma/โรงพยาบาล_ตัดคำแล้ว.json
+backend/prisma/โรงพยาบาล.csv
+backend/prisma/โรงพยาบาล.json
+backend/prisma/คำสั่ง.md
+
+#ai tools
+vsix_extracted
+.windsurfrules
+windsurf_dump_12052026.txt
+windsurf_dump.txt
+
+.cursor
+
+# Seed data files
+/data
+# local-only: mock seed tooling lists logins for the live site, backups, caches
+backend/scripts/mock-data/
+__pycache__/
+*.bak-*
+*.tsbuildinfo

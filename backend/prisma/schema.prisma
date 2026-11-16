@@ -1,0 +1,722 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Organization {
+  id               String            @id
+  name             String
+  lat              Float?
+  lng              Float?
+  province         String?
+  district         String?
+  phone            String?
+  logoUrl          String?           @map("logo_url")
+  executiveApprovalEnabled Boolean   @default(true) @map("executive_approval_enabled")
+  lockReturnOfficeEnabled  Boolean   @default(false) @map("lock_return_office_enabled")
+  returnOfficeRadiusMeters Int       @default(200) @map("return_office_radius_meters")
+  allowUserCancelQueue     Boolean   @default(true) @map("allow_user_cancel_queue")
+  cancelQueueUnit          String    @default("DAYS") @map("cancel_queue_unit")
+  cancelQueueValue         Int       @default(1) @map("cancel_queue_value")
+  minCancelHoursBefore     Int       @default(24) @map("min_cancel_hours_before")
+  allowVolunteerCancelJob  Boolean   @default(true) @map("allow_volunteer_cancel_job")
+  volunteerCancelUnit      String    @default("DAYS") @map("volunteer_cancel_unit")
+  volunteerCancelValue     Int       @default(1) @map("volunteer_cancel_value")
+  minVolunteerCancelHoursBefore Int   @default(24) @map("min_volunteer_cancel_hours_before")
+  advanceBookingLimitEnabled Boolean @default(true) @map("advance_booking_limit_enabled")
+  advanceBookingUnit       String    @default("DAYS") @map("advance_booking_unit")
+  advanceBookingValue      Int       @default(1) @map("advance_booking_value")
+  minAdvanceBookingDays    Int       @default(1) @map("min_advance_booking_days")
+  lineNotificationEnabled  Boolean   @default(true) @map("line_notification_enabled")
+  lineUseCustomOa          Boolean   @default(false) @map("line_use_custom_oa")
+  lineChannelId            String?   @map("line_channel_id")
+  lineChannelSecret        String?   @map("line_channel_secret")
+  lineChannelAccessToken   String?   @map("line_channel_access_token")
+  lineLiffId               String?   @map("line_liff_id")
+  lineBotBasicId           String?   @map("line_bot_basic_id")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  bookingTimeSlots BookingTimeSlot[]
+  equipment        Equipment[]
+  municipalRatings MunicipalRating[]
+  rewards          Reward[]
+  users            User[]
+  vehicles         Vehicle[]
+
+  @@map("organizations")
+}
+
+model User {
+  id                        String               @id @default(cuid()) @map("id")
+  pictureUrl                String?              @map("picture_url")
+  role                      Role?
+  allowedRoles              Role[]               @default([USERS]) @map("allowed_roles")
+  phone                     String?
+  mobilityStatus            MobilityStatus?      @map("mobility_status")
+  lat                       Float?
+  lng                       Float?
+  specialNeeds              String?              @map("special_needs")
+  pointsBalance             Int                  @default(0) @map("points_balance")
+  createdAt                 DateTime             @default(now()) @map("created_at")
+  updatedAt                 DateTime             @updatedAt @map("updated_at")
+  addressDetail             String?              @map("address_detail")
+  birthDate                 DateTime?            @map("birth_date")
+  country                   String?              @default("ประเทศไทย")
+  customDiseases            String[]             @default([]) @map("custom_diseases")
+  deletedAt                 DateTime?            @map("deleted_at")
+  districtName              String?              @map("district")
+  firstName                 String?              @map("first_name")
+  gender                    String?
+  iamUserId                 String               @unique @map("iam_user_id")
+  lineUserId                String?              @unique @map("line_user_id")
+  lineDisplayName           String?              @map("line_display_name")
+  linePictureUrl            String?              @map("line_picture_url")
+  lineConnectedAt           DateTime?            @map("line_connected_at")
+  idCard                    String?              @map("id_card")
+  lastName                  String?              @map("last_name")
+  organizationId            String?              @map("organization_id")
+  privacyAcceptedAt         DateTime?
+  privacyVersion            String?
+  provinceName              String?              @map("province")
+  refreshToken              String?              @map("refresh_token")
+  relativeName              String?              @map("relative_name")
+  relativePhone             String?              @map("relative_phone")
+  subdistrictName           String?              @map("sub_district")
+  villageName               String?              @map("village")
+  houseNo                   String?              @map("house_number")
+  neighbourhood             String?
+  placeName                 String?              @map("place_name")
+  postalCode                String?              @map("postcode")
+  road                      String?
+  residenceId               String?              @map("residence_id")
+  provinceId                Int?                 @map("province_id")
+  districtId                Int?                 @map("district_id")
+  subdistrictId             Int?                 @map("subdistrict_id")
+  activityLogs              ActivityLog[]
+  caregiverPatients         CaregiverPatient[]   @relation("CaregiverToPatients")
+  patientCaregivers         CaregiverPatient[]   @relation("PatientToCaregivers")
+  reviewedCaregiverRequests CaregiverPatient[]   @relation("StaffCaregiverReviewer")
+  jobsAsCareU               Job[]                @relation("CareUJobs")
+  jobsAsVlt                 Job[]                @relation("VltJobs")
+  notifications             Notification[]       @relation("UserNotifications")
+  reviewedEditRequests      ProfileEditRequest[] @relation("StaffReviewer")
+  profileEditRequests       ProfileEditRequest[] @relation("UserEditRequests")
+  roleRequests              RoleRequest[]        @relation("UserRoleRequests")
+  reviewedRoleRequests      RoleRequest[]        @relation("StaffRoleReviewer")
+  createdQueues             Queue[]              @relation("QueueCreator")
+  queues                    Queue[]              @relation("ElderlyQueues")
+  verifiedQueues            Queue[]              @relation("StaffVerifier")
+  reviewedRedemptions       Redemption[]         @relation("StaffRedemptionReviewer")
+  redemptions               Redemption[]         @relation("UserRedemptions")
+  rewardStockHistories      RewardStockHistory[] @relation("StaffRewardHistory")
+  municipalRatings          MunicipalRating[]
+  diseases                  UserDisease[]
+  organization              Organization?        @relation(fields: [organizationId], references: [id])
+  residenceClaims           ResidenceClaim[]
+  iamResidences             IamUserResidence[]
+
+  @@index([role, organizationId])
+  @@index([iamUserId])
+  @@map("users")
+}
+
+model CaregiverPatient {
+  id                Int              @id @default(autoincrement())
+  caregiverId       String           @map("caregiver_id")
+  patientId         String           @map("patient_id")
+  relationship      RelationshipType @default(RELATIVE)
+  additionalDetails String?          @map("additional_details")
+  documentUrl       String?          @map("document_url")
+  status            CaregiverStatus  @default(PENDING)
+  rejectReason      String?          @map("reject_reason")
+  reviewedBy        String?          @map("reviewed_by")
+  reviewedAt        DateTime?        @map("reviewed_at")
+  createdAt         DateTime         @default(now()) @map("created_at")
+  updatedAt         DateTime         @updatedAt @map("updated_at")
+  caregiver         User             @relation("CaregiverToPatients", fields: [caregiverId], references: [id])
+  patient           User             @relation("PatientToCaregivers", fields: [patientId], references: [id])
+  reviewer          User?            @relation("StaffCaregiverReviewer", fields: [reviewedBy], references: [id])
+
+  @@unique([caregiverId, patientId])
+  @@index([caregiverId])
+  @@index([patientId])
+  @@index([status])
+  @@map("caregiver_patients")
+}
+
+model UserDisease {
+  userId    String
+  diseaseId Int
+  disease   Disease @relation(fields: [diseaseId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, diseaseId])
+  @@map("user_diseases")
+}
+
+model Queue {
+  id                 Int                @id @default(autoincrement())
+  userId             String             @map("user_id")
+  department         String?            @map("department")
+  requestDate        DateTime           @map("request_date")
+  hasAppointment     Boolean            @default(false) @map("has_appointment")
+  appointmentImage   String?            @map("appointment_image")
+  severityLevel      SeverityLevel      @default(GREEN) @map("severity_level")
+  requiredVolunteers Int                @default(0) @map("required_volunteers")
+  status             QueueStatus        @default(PENDING_MUNICIPAL)
+  adminNote          String?            @map("admin_note")
+  rejectReason       String?            @map("reject_reason")
+  verifiedBy         String?            @map("verified_by")
+  verifiedAt         DateTime?          @map("verified_at")
+  executiveApprovedBy String?           @map("executive_approved_by")
+  executiveApprovedAt DateTime?         @map("executive_approved_at")
+  executiveRejectedBy String?           @map("executive_rejected_by")
+  executiveRejectedAt DateTime?         @map("executive_rejected_at")
+  confirmedByUser    Boolean            @default(false) @map("confirmed_by_user")
+  confirmedAt        DateTime?          @map("confirmed_at")
+  createdAt          DateTime           @default(now()) @map("created_at")
+  updatedAt          DateTime           @updatedAt @map("updated_at")
+  bookingTime        String?            @map("booking_time")
+  createdBy          String?            @map("created_by")
+  deletedAt          DateTime?          @map("deleted_at")
+  hospitalId         Int?               @map("hospital_id")
+  notificationReadAt DateTime?          @map("notification_read_at")
+  requiredEquipment  String?            @map("required_equipment")
+  wantCareU          Boolean            @default(false) @map("want_care_u")
+  job                Job?
+  resourceTimeSlots  ResourceTimeSlot[]
+  creator            User?              @relation("QueueCreator", fields: [createdBy], references: [id])
+  hospital           Hospital?          @relation(fields: [hospitalId], references: [id])
+  user               User               @relation("ElderlyQueues", fields: [userId], references: [id])
+  verifier           User?              @relation("StaffVerifier", fields: [verifiedBy], references: [id])
+
+  @@index([userId])
+  @@index([status, requestDate])
+  @@index([hospitalId])
+  @@map("queues")
+}
+
+model Job {
+  id                  Int                @id @default(autoincrement())
+  queueId             Int                @unique @map("queue_id")
+  vltId               String?            @map("vlt_id")
+  status              JobStatus          @default(OPEN)
+  distanceKm          Float?             @map("distance_km")
+  startedAt           DateTime?          @map("started_at")
+  completedAt         DateTime?          @map("completed_at")
+  ratingScore         Int?               @map("rating_score")
+  earnedPoints        Int                @default(0) @map("earned_points")
+  createdAt           DateTime           @default(now()) @map("created_at")
+  updatedAt           DateTime           @updatedAt @map("updated_at")
+  acceptedAt          DateTime?          @map("accepted_at")
+  deletedAt           DateTime?          @map("deleted_at")
+  patientDroppedOffAt DateTime?          @map("patient_dropped_off_at")
+  ratingComment       String?            @map("rating_comment")
+  returnEvidenceUrl   String?            @map("return_evidence_url")
+  startLat            Float?             @map("start_lat")
+  startLng            Float?             @map("start_lng")
+  vehicleId           Int?               @map("vehicle_id")
+  careuId             String?            @map("careu_id")
+  careuRatingComment  String?            @map("careu_rating_comment")
+  careuRatingScore    Int?               @map("careu_rating_score")
+  returnPickupRequestedAt DateTime?      @map("return_pickup_requested_at")
+  returnPickupRequestedBy String?        @map("return_pickup_requested_by")
+  driverDeliveredAt       DateTime?      @map("driver_delivered_at")
+  careu               User?              @relation("CareUJobs", fields: [careuId], references: [id])
+  queue               Queue              @relation(fields: [queueId], references: [id])
+  vehicle             Vehicle?           @relation(fields: [vehicleId], references: [id])
+  vlt                 User?              @relation("VltJobs", fields: [vltId], references: [id])
+  mileageLog          VehicleMileageLog?
+  municipalRating     MunicipalRating?
+  resourceTimeSlots   ResourceTimeSlot[]
+  locationLogs        JobLocationLog[]
+
+  @@index([status])
+  @@index([vltId])
+  @@index([careuId])
+  @@index([completedAt])
+  @@map("jobs")
+}
+
+model JobLocationLog {
+  id         Int      @id @default(autoincrement())
+  jobId      Int      @map("job_id")
+  driverId   String   @map("driver_id")
+  source     String   @default("DRIVE")
+  leg        String   @default("pickup")
+  lat        Float
+  lng        Float
+  recordedAt DateTime @default(now()) @map("recorded_at")
+  job        Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([jobId, recordedAt])
+  @@map("job_location_logs")
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id")
+  type      String
+  title     String
+  message   String
+  data      Json     @default("{}")
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  user      User     @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+  @@index([userId, createdAt])
+  @@map("notifications")
+}
+
+model ProfileEditRequest {
+  id               Int               @id @default(autoincrement())
+  userId           String            @map("user_id")
+  requestedChanges Json              @map("requested_changes")
+  newPictureUrl    String?           @map("new_picture_url")
+  status           EditRequestStatus @default(PENDING)
+  reviewedBy       String?           @map("reviewed_by")
+  reviewedAt       DateTime?         @map("reviewed_at")
+  rejectReason     String?           @map("reject_reason")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  reviewer         User?             @relation("StaffReviewer", fields: [reviewedBy], references: [id])
+  user             User              @relation("UserEditRequests", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@map("profile_edit_requests")
+}
+
+model Reward {
+  id                   Int                  @id @default(autoincrement())
+  name                 String
+  description          String?
+  imageUrl             String?              @map("image_url")
+  pointsCost           Int                  @map("points_cost")
+  stock                Int                  @default(-1)
+  isActive             Boolean              @default(true) @map("is_active")
+  organizationId       String?              @map("organization_id")
+  createdAt            DateTime             @default(now()) @map("created_at")
+  updatedAt            DateTime             @updatedAt @map("updated_at")
+  redemptions          Redemption[]
+  rewardStockHistories RewardStockHistory[]
+  organization         Organization?        @relation(fields: [organizationId], references: [id])
+
+  @@map("rewards")
+}
+
+model Redemption {
+  id           Int              @id @default(autoincrement())
+  userId       String           @map("user_id")
+  rewardId     Int              @map("reward_id")
+  pointsUsed   Int              @map("points_used")
+  status       RedemptionStatus @default(PENDING)
+  reviewedBy   String?          @map("reviewed_by")
+  reviewedAt   DateTime?        @map("reviewed_at")
+  rejectReason String?          @map("reject_reason")
+  createdAt    DateTime         @default(now()) @map("created_at")
+  updatedAt    DateTime         @updatedAt @map("updated_at")
+  reviewer     User?            @relation("StaffRedemptionReviewer", fields: [reviewedBy], references: [id])
+  reward       Reward           @relation(fields: [rewardId], references: [id])
+  user         User             @relation("UserRedemptions", fields: [userId], references: [id])
+
+  @@index([userId, status])
+  @@map("redemptions")
+}
+
+model RewardStockHistory {
+  id             Int      @id @default(autoincrement())
+  rewardId       Int      @map("reward_id")
+  action         String
+  quantityBefore Int      @map("quantity_before")
+  quantityAfter  Int      @map("quantity_after")
+  quantityChange Int      @map("quantity_change")
+  note           String?
+  evidenceUrl    String?  @map("evidence_url")
+  staffId        String   @map("staff_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+  reward         Reward   @relation(fields: [rewardId], references: [id])
+  staff          User     @relation("StaffRewardHistory", fields: [staffId], references: [id])
+
+  @@index([rewardId])
+  @@map("reward_stock_history")
+}
+
+model Hospital {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  lat       Float    @default(0)
+  lng       Float    @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  queues    Queue[]
+
+  @@index([name])
+  @@map("hospitals")
+}
+
+model Disease {
+  id        Int           @id @default(autoincrement())
+  name      String        @unique
+  isActive  Boolean       @default(true) @map("is_active")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+  users     UserDisease[]
+
+  @@index([name])
+  @@map("diseases")
+}
+
+model Equipment {
+  id             Int           @id @default(autoincrement())
+  name           String
+  isActive       Boolean       @default(true) @map("is_active")
+  organizationId String?       @map("organization_id")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  @@unique([name, organizationId])
+  @@index([organizationId])
+  @@map("equipment")
+}
+
+model ActivityLog {
+  id         Int              @id @default(autoincrement())
+  userId     String?          @map("user_id")
+  action     String
+  category   ActivityCategory @default(AUTH)
+  entityId   String?          @map("entity_id")
+  entityType String?          @map("entity_type")
+  ipAddress  String?          @map("ip_address")
+  userAgent  String?          @map("user_agent")
+  device     String?
+  before     Json?            @map("before")
+  after      Json?            @map("after")
+  success    Boolean          @default(true)
+  note       String?
+  createdAt  DateTime         @default(now()) @map("created_at")
+  user       User?            @relation(fields: [userId], references: [id])
+
+  @@index([category])
+  @@index([userId])
+  @@index([createdAt])
+  @@index([action])
+  @@index([success])
+  @@map("activity_logs")
+}
+
+model BookingTimeSlot {
+  id             Int           @id @default(autoincrement())
+  label          String
+  sortOrder      Int           @default(0) @map("sort_order")
+  isActive       Boolean       @default(true) @map("is_active")
+  organizationId String?       @map("organization_id")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  @@unique([label, organizationId])
+  @@index([organizationId, isActive])
+  @@map("booking_time_slots")
+}
+
+enum ResourceType {
+  VEHICLE
+  DRIVER
+  CAREU
+}
+
+model ResourceTimeSlot {
+  id             Int          @id @default(autoincrement())
+  resourceType   ResourceType @map("resource_type")
+  resourceId     String       @map("resource_id")
+  bookingDate    DateTime     @map("booking_date")
+  bookingTime    String       @map("booking_time")
+  jobId          Int          @map("job_id")
+  queueId        Int          @map("queue_id")
+  organizationId String?      @map("organization_id")
+  createdAt      DateTime     @default(now()) @map("created_at")
+  job            Job          @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  queue          Queue        @relation(fields: [queueId], references: [id], onDelete: Cascade)
+
+  @@index([resourceType, resourceId, bookingDate, bookingTime])
+  @@index([organizationId, bookingDate, bookingTime])
+  @@index([jobId])
+  @@map("resource_time_slots")
+}
+
+model Settings {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("settings")
+}
+
+
+model Vehicle {
+  id             Int                 @id @default(autoincrement())
+  licensePlate   String              @unique @map("license_plate")
+  name           String
+  type           String
+  fuelType       FuelType?           @map("fuel_type")
+  brand          String?
+  model          String?
+  color          String?
+  capacity       Int                 @default(4)
+  totalMileageKm Float               @default(0) @map("total_mileage_km")
+  imageUrl       String?             @map("image_url")
+  isActive       Boolean             @default(true) @map("is_active")
+  status         VehicleStatus       @default(READY) @map("status")
+  organizationId String?             @map("organization_id")
+  createdAt      DateTime            @default(now()) @map("created_at")
+  updatedAt      DateTime            @updatedAt @map("updated_at")
+  deletedAt      DateTime?           @map("deleted_at")
+  jobs           Job[]
+  mileageLogs    VehicleMileageLog[]
+  organization   Organization?       @relation(fields: [organizationId], references: [id])
+
+  @@map("vehicles")
+}
+
+model VehicleMileageLog {
+  id            Int      @id @default(autoincrement())
+  vehicleId     Int      @map("vehicle_id")
+  jobId         Int      @unique @map("job_id")
+  mileageBefore Float    @map("mileage_before")
+  mileageAfter  Float    @map("mileage_after")
+  note          String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  job           Job      @relation(fields: [jobId], references: [id])
+  vehicle       Vehicle  @relation(fields: [vehicleId], references: [id])
+
+  @@index([vehicleId])
+  @@map("vehicle_mileage_logs")
+}
+
+model MunicipalRating {
+  id             Int          @id @default(autoincrement())
+  jobId          Int          @unique @map("job_id")
+  userId         String       @map("user_id")
+  organizationId String       @map("organization_id")
+  punctuality    Int
+  bookingEase    Int          @map("booking_ease")
+  vehicleClean   Int          @map("vehicle_clean")
+  safety         Int
+  staffAttitude  Int          @map("staff_attitude")
+  overallScore   Int          @map("overall_score")
+  comment        String?
+  createdAt      DateTime     @default(now()) @map("created_at")
+  job            Job          @relation(fields: [jobId], references: [id])
+  user           User         @relation(fields: [userId], references: [id])
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  @@index([organizationId])
+  @@index([userId])
+  @@map("municipal_ratings")
+}
+
+enum Role {
+  USERS
+  CAREGIVER
+  DRIVE
+  CAREU
+  STAFF
+  EXECUTIVE
+  ADMIN
+}
+
+enum MobilityStatus {
+  WALKING
+  WHEELCHAIR
+  BEDRIDDEN
+}
+
+enum SeverityLevel {
+  GREEN
+  YELLOW
+  RED
+}
+
+enum QueueStatus {
+  PENDING_MUNICIPAL
+  APPROVED
+  PENDING_EXECUTIVE
+  EXECUTIVE_REJECTED
+  CONFIRMED
+  REJECTED
+  CANCELLED_BY_USER
+  CANCELLED_BY_MUNICIPAL
+}
+
+enum JobStatus {
+  OPEN
+  ASSIGNED
+  ACCEPTED
+  REJECTED
+  PICKING_UP
+  COMPLETED
+  CANCELLED
+  IN_TRANSIT
+  AT_HOSPITAL
+  RETURN_HOME
+  AT_PATIENT_HOME
+  RETURN_OFFICE
+}
+
+enum FuelType {
+  BENZENE
+  GASOHOL_91
+  GASOHOL_95
+  GASOHOL_E20
+  GASOHOL_E85
+  DIESEL
+  ELECTRIC
+}
+
+enum VehicleStatus {
+  READY
+  MAINTENANCE
+  INACTIVE
+}
+
+enum RelationshipType {
+  FAMILY
+  RELATIVE
+  CLOSE_PERSON
+}
+
+enum CaregiverStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum EditRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum RedemptionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+enum ActivityCategory {
+  AUTH
+  QUEUE
+  JOB
+  CAREGIVER
+  USER
+  VEHICLE
+  REWARD
+  SETTING
+  RESIDENCE
+}
+
+model ResidenceClaim {
+  id                  Int                    @id @default(autoincrement())
+  iamClaimId          String                 @unique @map("iam_claim_id")
+  userId              String                 @map("user_id")
+  externalRequestId   String?                @map("external_request_id")
+  houseNo             String                 @map("house_no")
+  moo                 String?
+  villageName         String?                @map("village_name")
+  provinceId          Int                    @map("province_id")
+  districtId          Int                    @map("district_id")
+  subdistrictId       Int                    @map("subdistrict_id")
+  postalCode          String?                @map("postal_code")
+  latitude            Float?
+  longitude           Float?
+  statusSnapshot      ResidenceClaimStatus   @default(SUBMITTED) @map("status_snapshot")
+  selectedResidenceId String?                @map("selected_residence_id")
+  reviewNote          String?                @map("review_note")
+  createdAt           DateTime               @default(now()) @map("created_at")
+  updatedAt           DateTime               @updatedAt @map("updated_at")
+  user                User                   @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([statusSnapshot])
+  @@map("residence_claims")
+}
+
+model IamUserResidence {
+  id                String    @id @default(cuid())
+  userId            String    @map("user_id")
+  membershipId      String    @map("membership_id")
+  residenceId       String    @map("residence_id")
+  residenceCode     String?   @map("residence_code")
+  role              String?
+  status            String?
+  verifiedAt        DateTime? @map("verified_at")
+  formattedAddress  String?   @map("formatted_address")
+  houseNo           String?   @map("house_no")
+  moo               String?
+  villageName       String?   @map("village_name")
+  buildingName      String?   @map("building_name")
+  floor             String?
+  roomNo            String?   @map("room_no")
+  soi               String?
+  road              String?
+  postalCode        String?   @map("postal_code")
+  provinceNameTh    String?   @map("province_name_th")
+  districtNameTh    String?   @map("district_name_th")
+  subdistrictNameTh String?   @map("subdistrict_name_th")
+  municipalityName  String?   @map("municipality_name")
+  latitude          Float?
+  longitude         Float?
+  syncedAt          DateTime  @default(now()) @map("synced_at")
+  user              User      @relation(fields: [userId], references: [id])
+
+  @@unique([userId, membershipId])
+  @@index([userId])
+  @@map("iam_user_residences")
+}
+
+enum ResidenceClaimStatus {
+  SUBMITTED
+  DUPLICATE_CANDIDATE
+  NEEDS_REVIEW
+  APPROVED
+  MERGED
+  REJECTED
+}
+
+enum RoleRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model RoleRequest {
+  id            String            @id @default(cuid()) @map("id")
+  userId        String            @map("user_id")
+  requestedRole Role              @map("requested_role")
+  currentRole   Role?             @map("current_role")
+  status        RoleRequestStatus @default(PENDING)
+  reason        String?           @map("reason")
+  documents     String[]          @default([]) @map("documents")
+  note          String?           @map("note")
+  rejectReason  String?           @map("reject_reason")
+  reviewedById  String?           @map("reviewed_by_id")
+  reviewedAt    DateTime?         @map("reviewed_at")
+  createdAt     DateTime          @default(now()) @map("created_at")
+  updatedAt     DateTime          @updatedAt @map("updated_at")
+
+  user          User              @relation("UserRoleRequests", fields: [userId], references: [id])
+  reviewedBy    User?             @relation("StaffRoleReviewer", fields: [reviewedById], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@map("role_requests")
+}
+

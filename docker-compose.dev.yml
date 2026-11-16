@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: volunteer-smart-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=volunteer
+      - POSTGRES_PASSWORD=volunteer_secret
+      - POSTGRES_DB=volunteer_smart
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U volunteer -d volunteer_smart"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres-dev-data:

@@ -1,0 +1,61 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { getApiUrl } from '@/lib/api';
+import dynamic from 'next/dynamic';
+import ProtectedRoute from '@/components/shared/ProtectedRoute';
+import LayoutWithSidebar from '@/components/shared/LayoutWithSidebar';
+import RoleSwitcherCard from '@/components/shared/role/RoleSwitcherCard';
+import LineAccountCard from '@/components/shared/LineAccountCard';
+
+const CaregiverSidebar = dynamic(
+  () => import('@/components/caregiver/sidebar').then(mod => ({ default: mod.CaregiverSidebar })),
+  { ssr: false }
+);
+const CaregiverHeader = dynamic(
+  () => import('@/components/caregiver/header').then(mod => ({ default: mod.CaregiverHeader })),
+  { ssr: false }
+);
+const SettingsPanel = dynamic(() => import('gov-layout').then(mod => ({ default: mod.SettingsPanel })), { ssr: false });
+
+function CaregiverSettingsContent() {
+    const [user, setUser] = useState<any>(null);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const res = await fetch(`${getApiUrl()}/auth/profile`, { credentials: 'include' });
+                if (res.ok) {
+                    const data = await res.json();
+                    setUser(data);
+                }
+            } catch (err) {
+                console.error('Error fetching user:', err);
+            }
+        };
+        fetchUser();
+    }, []);
+
+    return (
+        <LayoutWithSidebar role="CAREGIVER" showSidebar={false} user={user}>
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 relative pb-16">
+                <CaregiverSidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+                <CaregiverHeader user={user} onToggleSidebar={() => setSidebarOpen(true)} />
+                <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
+                    <RoleSwitcherCard />
+                    <LineAccountCard />
+                    <SettingsPanel />
+                </div>
+            </div>
+        </LayoutWithSidebar>
+    );
+}
+
+export default function CaregiverSettings() {
+    return (
+        <ProtectedRoute allowedRoles={['CAREGIVER', 'ADMIN']}>
+            <CaregiverSettingsContent />
+        </ProtectedRoute>
+    );
+}

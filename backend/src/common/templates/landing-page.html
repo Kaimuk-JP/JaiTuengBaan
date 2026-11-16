@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer E-Service API ♡</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fef6f0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Soft pastel bg pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(173, 216, 230, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(255, 228, 181, 0.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Floating elements */
+    .float-item {
+      position: fixed;
+      pointer-events: none;
+      animation: floaty 6s ease-in-out infinite;
+      font-size: 24px;
+      opacity: 0.5;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* Main card */
+    .card {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 40px 36px 36px;
+      background: #ffffff;
+      border-radius: 32px;
+      border: 3px solid #f5d5c8;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 8px 0 #f5d5c8, 0 20px 40px rgba(0,0,0,0.06);
+      animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    @keyframes popIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Chiikawa-style mascot */
+    .mascot-area {
+      position: relative;
+      width: 130px;
+      height: 140px;
+      margin: -80px auto 8px;
+    }
+    .mascot {
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #fff5f5;
+      border: 2px solid #fecaca;
+      color: #e57373;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: #5d4037;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      color: #a1887f;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    /* Status pills */
+    .status-area {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .pill:nth-child(1) { animation-delay: 0.2s; }
+    .pill:nth-child(2) { animation-delay: 0.35s; }
+
+    .pill.ok {
+      background: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      color: #16a34a;
+    }
+    .pill.err {
+      background: #fef2f2;
+      border: 2px solid #fecaca;
+      color: #dc2626;
+    }
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pill-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: blink 1.5s infinite;
+    }
+    .pill.ok .pill-dot { background: #4ade80; }
+    .pill.err .pill-dot { background: #f87171; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .pill-label { flex: 1; text-align: left; }
+    .pill-icon { font-size: 16px; }
+
+    .timestamp {
+      color: #d4a59a;
+      font-size: 11px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Cute divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #f5d5c8;
+      font-size: 10px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: #fce8e0;
+      border-radius: 2px;
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .links a {
+      color: #8d6e63;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2.5px solid #f5d5c8;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.25s;
+      background: #fffaf8;
+    }
+    .links a:hover {
+      background: #fce8e0;
+      border-color: #e8b4a2;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 0 #f5d5c8;
+    }
+    .links a:active {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 2px 0 #f5d5c8;
+    }
+
+    .footer {
+      color: #d4a59a;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .footer-heart {
+      color: #f87171;
+      animation: heartbeat 1.2s infinite;
+      display: inline-block;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.3); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.2); }
+    }
+
+    /* Speech bubble */
+    .speech {
+      position: relative;
+      background: #fff9c4;
+      border: 2px solid #ffe082;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f57f17;
+      margin: 0 auto 8px;
+      display: inline-block;
+      animation: fadeIn 0.8s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+    .speech::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #ffe082;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Tiny walking friends */
+    .friends {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .friend {
+      position: absolute;
+      bottom: 0;
+      animation: walk linear infinite;
+    }
+    @keyframes walk {
+      from { transform: translateX(-60px); }
+      to { transform: translateX(calc(100vw + 60px)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating decorations -->
+  <div class="float-item" style="top:10%;left:8%;animation-delay:0s">⭐</div>
+  <div class="float-item" style="top:20%;right:12%;animation-delay:1s">🌸</div>
+  <div class="float-item" style="bottom:25%;left:15%;animation-delay:2s">☁️</div>
+  <div class="float-item" style="top:60%;right:8%;animation-delay:3s">🌟</div>
+  <div class="float-item" style="top:45%;left:5%;animation-delay:1.5s;font-size:18px">💛</div>
+  <div class="float-item" style="bottom:15%;right:18%;animation-delay:4s;font-size:18px">🍀</div>
+  <div class="float-item" style="top:8%;left:45%;animation-delay:2.5s;font-size:20px">✿</div>
+
+  <div class="card">
+    <!-- Chiikawa-style rabbit with glasses mascot -->
+    <div class="mascot-area">
+      <div class="mascot">
+        <img src="{{MASCOT}}" alt="Mascot" style="width: 140px; height: 140px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));" />
+      </div>
+    </div>
+
+    <div class="speech">ระบบพร้อมใช้งานแล้วค่า～♡</div>
+
+    <div class="badge">
+      <span>Government Service</span>
+    </div>
+
+    <h1>Volunteer E-Service API</h1>
+    <p class="subtitle">ระบบจัดการอาสาสมัครและการจองคิว 🩺</p>
+
+    <div class="status-area">
+      <div class="pill {{STATUS_CLASS}}">
+        <div class="pill-dot"></div>
+        <span class="pill-label">API Server</span>
+        <span class="pill-icon">{{STATUS_ICON}}</span>
+      </div>
+      <div class="pill {{STATUS_CLASS}}">
+        <div class="pill-dot"></div>
+        <span class="pill-label">Database · {{DB_MESSAGE}}</span>
+        <span class="pill-icon">{{STATUS_ICON}}</span>
+      </div>
+    </div>
+
+    <p class="timestamp">{{TIMESTAMP}}</p>
+
+    <div class="divider">♡ · ♡ · ♡</div>
+
+
+    <p class="footer">v1.0.0 · Made with <span class="footer-heart">♥</span> by GovCenter</p>
+  </div>
+
+  <!-- Walking friends at the bottom -->
+  <div class="friends">
+    <svg class="friend" width="36" height="36" viewBox="0 0 36 36" style="animation-duration:18s;animation-delay:0s">
+      <ellipse cx="18" cy="20" rx="12" ry="13" fill="#bbdefb" stroke="#90caf9" strokeWidth="1.5"/>
+      <circle cx="14" cy="18" r="2" fill="#5d4037"/>
+      <circle cx="22" cy="18" r="2" fill="#5d4037"/>
+      <path d="M15 23 Q18 26 21 23" stroke="#8d6e63" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    </svg>
+    <svg class="friend" width="30" height="30" viewBox="0 0 30 30" style="animation-duration:22s;animation-delay:4s">
+      <ellipse cx="15" cy="17" rx="10" ry="11" fill="#c8e6c9" stroke="#a5d6a7" strokeWidth="1.5"/>
+      <circle cx="12" cy="15" r="1.5" fill="#5d4037"/>
+      <circle cx="18" cy="15" r="1.5" fill="#5d4037"/>
+      <path d="M13 20 Q15 22 17 20" stroke="#8d6e63" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+    </svg>
+    <svg class="friend" width="28" height="28" viewBox="0 0 28 28" style="animation-duration:25s;animation-delay:8s">
+      <ellipse cx="14" cy="16" rx="9" ry="10" fill="#fff9c4" stroke="#fff176" strokeWidth="1.5"/>
+      <circle cx="11" cy="14" r="1.5" fill="#5d4037"/>
+      <circle cx="17" cy="14" r="1.5" fill="#5d4037"/>
+      <path d="M12 18 Q14 20 16 18" stroke="#8d6e63" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+    </svg>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "name": "volunteer-smart",
+    "private": true,
+    "devDependencies": {
+        "tailwindcss": "^4"
+    }
+}
