@@ -25,7 +25,6 @@ export default function WebcamModal({ isOpen, stream, onClose, onCapture }: Webc
     return (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full overflow-hidden">
-                {}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
                     <h3 className="text-lg font-bold text-text-primary">ถ่ายรูปโปรไฟล์</h3>
                     <button
@@ -39,7 +38,6 @@ export default function WebcamModal({ isOpen, stream, onClose, onCapture }: Webc
                     </button>
                 </div>
 
-                {}
                 <div className="p-6">
                     <div className="relative bg-black rounded-xl overflow-hidden aspect-video">
                         <video
@@ -53,7 +51,6 @@ export default function WebcamModal({ isOpen, stream, onClose, onCapture }: Webc
                     <canvas ref={canvasRef} className="hidden" />
                 </div>
 
-                {}
                 <div className="flex gap-3 px-6 pb-6">
                     <button
                         type="button"

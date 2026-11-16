@@ -137,7 +137,6 @@ export default function CameraCapture({ isOpen, onClose, onCapture, onFallbackCa
 
     return (
         <div className="fixed inset-0 bg-black z-[9999] flex flex-col">
-            {}
             <div className="flex items-center justify-between px-4 py-3 bg-black/80 text-white z-10">
                 <button onClick={handleClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -160,7 +159,6 @@ export default function CameraCapture({ isOpen, onClose, onCapture, onFallbackCa
                 {(capturedImage || error) && <div className="w-10" />}
             </div>
 
-            {}
             <div className="flex-1 flex items-center justify-center bg-black relative overflow-hidden">
                 {error ? (
                     <div className="text-center text-white px-8">
@@ -224,7 +222,6 @@ export default function CameraCapture({ isOpen, onClose, onCapture, onFallbackCa
 
             <canvas ref={canvasRef} className="hidden" />
 
-            {}
             <div className="bg-black/80 px-6 py-5">
                 {capturedImage ? (
                     <div className="flex items-center justify-center gap-6">

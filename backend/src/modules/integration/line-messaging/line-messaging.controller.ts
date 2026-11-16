@@ -120,7 +120,7 @@ export class LineMessagingController {
             if (text.includes('จองคิว') || text.includes('booking')) {
                 await this.lineMessagingService.replyMessage(replyToken, [{
                     type: 'text',
-                    text: ` คุณสามารถจองคิวได้ที่เมนูด้านล่าง หรือกดที่ลิงก์นี้: ${process.env.FRONTEND_URL || 'https://volunteer-eservice.govcenter.co'}`,
+                    text: ` คุณสามารถจองคิวได้ที่เมนูด้านล่าง หรือกดที่ลิงก์นี้: ${process.env.FRONTEND_URL || ''}`,
                 }]);
             } else if (text.includes('สถานะ') || text.includes('status')) {
                 await this.lineMessagingService.replyMessage(replyToken, [{

@@ -177,16 +177,13 @@ export default function MunicipalRatingModal({
 
     return (
         <>
-            {}
             <div
                 className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[101] flex items-start justify-center pt-6 p-4 overflow-y-auto"
             >
-                {}
                 <div
                     className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-5 relative animate-scale-in my-4"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    {}
                     <div className="text-center mb-4">
                         <h2 className="text-xl font-bold text-blue-700 mb-1">
                             ประเมินการบริการเทศบาล
@@ -196,7 +193,6 @@ export default function MunicipalRatingModal({
                         </p>
                     </div>
 
-                    {}
                     <div className="space-y-3 mb-4 max-h-[50vh] overflow-y-auto pr-1">
                         {ratingCategories.map((cat) => (
                             <div
@@ -220,7 +216,6 @@ export default function MunicipalRatingModal({
                         ))}
                     </div>
 
-                    {}
                     <textarea
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
@@ -229,7 +224,6 @@ export default function MunicipalRatingModal({
                         className="w-full p-2.5 border border-border-neutral rounded-xl focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all resize-none text-text-primary text-sm mb-4"
                     />
 
-                    {}
                     <div className="flex gap-3">
                         <button
                             type="button"

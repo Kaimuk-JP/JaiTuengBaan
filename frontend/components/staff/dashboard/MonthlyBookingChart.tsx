@@ -161,7 +161,6 @@ export default function MonthlyBookingChart({ data, viewMode = 'monthly', onView
             <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <p className="text-base font-bold text-slate-900">ปริมาณการขอใช้บริการรายเดือน</p>
 
-                {}
                 {onViewChange && (
                     <div className="flex bg-slate-100 rounded-lg p-1">
                         <button

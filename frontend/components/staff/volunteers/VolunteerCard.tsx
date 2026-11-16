@@ -20,7 +20,6 @@ interface VolunteerCardProps {
 export default function VolunteerCard({ volunteer }: VolunteerCardProps) {
     return (
         <div className="group bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-md hover:border-green-200 transition-all cursor-pointer flex gap-5 items-start">
-            {}
             <div className="flex-shrink-0">
                 <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-100">
                     {volunteer.pictureUrl ? (
@@ -39,9 +38,7 @@ export default function VolunteerCard({ volunteer }: VolunteerCardProps) {
                 </div>
             </div>
 
-            {}
             <div className="flex-1 min-w-0 space-y-2">
-                {}
                 <div className="flex items-start">
                     <span className="text-sm text-text-primary w-24 flex-shrink-0">ชื่อ - สกุล</span>
                     <span className="text-sm font-medium text-text-primary truncate">
@@ -51,7 +48,6 @@ export default function VolunteerCard({ volunteer }: VolunteerCardProps) {
                     </span>
                 </div>
 
-                {}
                 <div className="flex items-start">
                     <span className="text-sm text-text-primary w-24 flex-shrink-0">ที่อยู่</span>
                     <span className="text-sm text-text-primary truncate">
@@ -59,7 +55,6 @@ export default function VolunteerCard({ volunteer }: VolunteerCardProps) {
                     </span>
                 </div>
 
-                {}
                 <div className="flex items-start">
                     <span className="text-sm text-text-primary w-24 flex-shrink-0">เบอร์ โทร</span>
                     <span className="text-sm text-text-primary">{volunteer.phone || '-'}</span>

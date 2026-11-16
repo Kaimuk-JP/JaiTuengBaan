@@ -23,7 +23,6 @@ export default function MapControls({
 }: MapControlsProps) {
     return (
         <div className="absolute right-4 bottom-4 z-[1000] flex flex-col gap-3">
-            {}
             {onToggleTraffic && (
                 <button
                     onClick={onToggleTraffic}
@@ -40,7 +39,6 @@ export default function MapControls({
                 </button>
             )}
 
-            {}
             <button
                 onClick={onToggleTracking}
                 className={`p-3 rounded-full shadow-lg transition-all ${isTracking ? 'bg-brand-primary text-white' : 'bg-white text-text-secondary'
@@ -51,7 +49,6 @@ export default function MapControls({
                 </svg>
             </button>
 
-            {}
             <button
                 onClick={onExitFullscreen}
                 className="p-3 rounded-full shadow-lg bg-white text-text-secondary hover:bg-background-hover"
@@ -61,7 +58,6 @@ export default function MapControls({
                 </svg>
             </button>
 
-            {}
             {activeJobStatus === 'PICKING_UP' && (
                 <button
                     onClick={() => onUpdateStatus('COMPLETED')}

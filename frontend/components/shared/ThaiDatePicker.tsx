@@ -123,24 +123,20 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
 
         return (
             <>
-                {}
                 <div
                     className="fixed inset-0 bg-black/40 z-[9998]"
                     onClick={handleClose}
                     onTouchEnd={handleClose}
                 />
 
-                {}
                 <div
                     className="fixed bottom-0 left-0 right-0 z-[9999] bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl"
                     style={{ maxHeight: '70dvh', animation: 'slideUp 0.25s ease-out' }}
                 >
-                    {}
                     <div className="flex justify-center pt-2 pb-1">
                         <div className="w-10 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
                     </div>
 
-                    {}
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 dark:border-gray-700">
                         <button
                             type="button"
@@ -167,7 +163,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                         </button>
                     </div>
 
-                    {}
                     <div className="flex items-center justify-center gap-2 py-2 px-4">
                         {['ปี', 'เดือน', 'วัน'].map((label, i) => {
                             const steps: Step[] = ['year', 'month', 'day'];
@@ -189,10 +184,8 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                         })}
                     </div>
 
-                    {}
                     <div className="overflow-y-auto" style={{ maxHeight: 'calc(70dvh - 130px)', WebkitOverflowScrolling: 'touch' }}>
 
-                        {}
                         {step === 'year' && (
                             <div ref={yearListRef} className="p-3 overflow-y-auto" style={{ maxHeight: 'calc(70dvh - 170px)', WebkitOverflowScrolling: 'touch' }}>
                                 <div className="grid grid-cols-3 gap-2">
@@ -221,7 +214,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                             </div>
                         )}
 
-                        {}
                         {step === 'month' && selectedYear !== null && (
                             <div className="p-4">
                                 <div className="grid grid-cols-3 gap-2.5">
@@ -250,18 +242,14 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                             </div>
                         )}
 
-                        {}
                         {step === 'day' && selectedYear !== null && selectedMonth !== null && (
                             <div className="p-4">
-                                {}
                                 <div className="grid grid-cols-7 gap-1 mb-2">
                                     {['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'].map(d => (
                                         <div key={d} className="text-center text-xs font-semibold text-gray-400 dark:text-gray-500 py-1">{d}</div>
                                     ))}
                                 </div>
-                                {}
                                 <div className="grid grid-cols-7 gap-1">
-                                    {}
                                     {Array.from({ length: new Date(selectedYear, selectedMonth, 1).getDay() }, (_, i) => (
                                         <div key={`e-${i}`} />
                                     ))}
@@ -294,7 +282,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                         )}
                     </div>
 
-                    {}
                     <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-700 flex justify-between items-center" style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}>
                         <button type="button" onClick={handleClear} className="text-sm text-red-500 font-semibold px-3 py-2 rounded-xl active:bg-red-50 transition-colors">
                             ล้างค่า
@@ -305,7 +292,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                     </div>
                 </div>
 
-                {}
                 <style>{`
                     @keyframes slideUp {
                         from { transform: translateY(100%); }
@@ -318,7 +304,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
 
     return (
         <div className="relative w-full min-w-0 max-w-full">
-            {}
             <button
                 type="button"
                 onClick={handleOpen}
@@ -330,7 +315,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                     <span className="text-text-placeholder">{placeholder}</span>
                 )}
             </button>
-            {}
             <svg
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-placeholder pointer-events-none"
                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -338,7 +322,6 @@ export default function ThaiDatePicker({ value, onChange, placeholder = 'วว/
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
 
-            {}
             {mounted && createPortal(renderPicker(), document.body)}
         </div>
     );

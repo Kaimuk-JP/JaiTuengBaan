@@ -36,7 +36,6 @@ export default function VolunteerInfoForm({
     };
     return (
         <>
-            {}
             <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-text-primary">ข้อมูลสมาชิกจิตอาสา</h2>
                 <button
@@ -51,7 +50,6 @@ export default function VolunteerInfoForm({
             </div>
 
             <div className="space-y-6">
-                {}
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <label className="block text-sm font-medium text-text-secondary mb-2">ชื่อ</label>
@@ -77,7 +75,6 @@ export default function VolunteerInfoForm({
                     </div>
                 </div>
 
-                {}
                 <div>
                     <label className="block text-sm font-medium text-text-secondary mb-2">เพศ</label>
                     <select
@@ -99,7 +96,6 @@ export default function VolunteerInfoForm({
                     </select>
                 </div>
 
-                {}
                 <div>
                     <label className="block text-sm font-medium text-text-secondary mb-2">เบอร์โทร</label>
                     <input
@@ -113,7 +109,6 @@ export default function VolunteerInfoForm({
                     />
                 </div>
 
-                {}
                 <div>
                     <label className="block text-sm font-medium text-text-secondary mb-2">วันเดือนปีเกิด</label>
                     <input
@@ -126,7 +121,6 @@ export default function VolunteerInfoForm({
                     />
                 </div>
 
-                {}
                 <div className="pt-4 border-t border-slate-100">
                     <h3 className="text-lg font-bold text-text-primary mb-4">ข้อมูลที่อยู่</h3>
 
@@ -209,7 +203,6 @@ export default function VolunteerInfoForm({
                     </div>
                 </div>
 
-                {}
                 {isEditing && (
                     <div className="flex justify-center gap-4 pt-6">
                         <button

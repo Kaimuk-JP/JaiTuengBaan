@@ -186,13 +186,11 @@ export default function PatientInfoForm({
 
     return (
         <div className="space-y-4 mb-6">
-            {}
             <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-700">ชื่อ-สกุล:</span>
                 <span className="text-gray-900">{displayName}</span>
             </div>
 
-            {}
             <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-700">สถานะการเคลื่อนที่:</span>
                 <span className={`px-2 py-1 rounded-full text-sm font-medium ${mobilityStatus === 'WHEELCHAIR' ? 'bg-blue-100 text-blue-800' :
@@ -203,7 +201,6 @@ export default function PatientInfoForm({
                 </span>
             </div>
 
-            {}
             <div className="flex items-center gap-2">
                 <span className={`px-2 py-1 rounded-full text-sm font-medium ${hasAppointment ? 'bg-purple-100 text-purple-800' : 'bg-gray-100 text-gray-800'
                     }`}>
@@ -211,7 +208,6 @@ export default function PatientInfoForm({
                 </span>
             </div>
 
-            {}
             <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-700">โรงพยาบาล:</span>
                 {isEditMode ? (
@@ -266,7 +262,6 @@ export default function PatientInfoForm({
                 )}
             </div>
 
-            {}
             <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-700 whitespace-nowrap">เวลานัด:</span>
                 {isEditMode ? (
@@ -304,7 +299,6 @@ export default function PatientInfoForm({
                 )}
             </div>
 
-            {}
             <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-700 whitespace-nowrap">วันที่ขอใช้บริการ:</span>
                 {isEditMode ? (

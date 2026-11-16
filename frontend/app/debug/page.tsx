@@ -46,7 +46,6 @@ function DebugPageContent() {
           </h1>
 
           <div className="space-y-6">
-            {}
             <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
               <h2 className="font-bold text-lg mb-2 text-blue-800">Authentication Status</h2>
               <div className="space-y-2">
@@ -61,7 +60,6 @@ function DebugPageContent() {
               </div>
             </div>
 
-            {}
             <div className="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
               <h2 className="font-bold text-lg mb-2 text-green-800">User Information</h2>
               {debugInfo.user ? (
@@ -94,7 +92,6 @@ function DebugPageContent() {
               )}
             </div>
 
-            {}
             {debugInfo.user && (
               <div className="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
                 <h2 className="font-bold text-lg mb-2 text-yellow-800">Expected Redirect</h2>
@@ -115,13 +112,11 @@ function DebugPageContent() {
               </div>
             )}
 
-            {}
             <div className="text-sm text-gray-500 text-center">
               อัปเดตล่าสุด: {debugInfo.timestamp}
             </div>
           </div>
 
-          {}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
             <button
               onClick={() => router.push('/')}
@@ -149,7 +144,6 @@ function DebugPageContent() {
             </button>
           </div>
 
-          {}
           {debugInfo.user && (
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
               <button

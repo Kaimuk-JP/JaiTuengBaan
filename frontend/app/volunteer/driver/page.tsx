@@ -50,16 +50,13 @@ function DriverMapPageInner() {
 
     return (
         <ProtectedRoute allowedRoles={['DRIVE', 'CAREU', 'ADMIN']}>
-            {}
             <div className="flex flex-col h-screen overflow-hidden relative bg-white w-full">
 
-                {}
                 {user?.role === 'CAREU' ? (
                     <CareUSidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
                 ) : (
                     <VolunteerSidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
                 )}
-                {}
                 {viewMode === 'calendar' && (
                     <div className="flex-none z-20 relative shadow-md">
                         {user?.role === 'CAREU' ? (
@@ -69,9 +66,7 @@ function DriverMapPageInner() {
                         )}
                     </div>
                 )}
-                {}
 
-                {}
                 <div className="flex-1 relative z-0 overflow-y-auto bg-white">
                     {viewMode === 'calendar' ? (
                         <WorkCalendarApp onNavigateToMap={(jobId) => {
@@ -80,7 +75,6 @@ function DriverMapPageInner() {
                         }} />
                     ) : (
                         <div className="h-full w-full relative">
-                            {}
                             <button
                                 onClick={() => router.back()}
                                 className="absolute top-4 left-4 z-[1000] flex items-center gap-1.5 bg-white dark:bg-gray-800 text-brand-primary shadow-lg rounded-full px-4 py-2.5 hover:shadow-xl active:scale-95 transition-all border border-gray-200 dark:border-gray-600"

@@ -17,7 +17,6 @@ interface PersonalInfoFieldsProps {
 export function PersonalInfoFields({ formData, onChange }: PersonalInfoFieldsProps) {
     return (
         <div className="space-y-2x">
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     เลขบัตรประชาชน <span className="text-semantic-critical">*</span>
@@ -64,7 +63,6 @@ export function PersonalInfoFields({ formData, onChange }: PersonalInfoFieldsPro
                 />
             </div>
 
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     เพศ <span className="text-semantic-critical">*</span>
@@ -95,7 +93,6 @@ export function PersonalInfoFields({ formData, onChange }: PersonalInfoFieldsPro
                 </div>
             </div>
 
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     เบอร์โทรศัพท์ <span className="text-semantic-critical">*</span>
@@ -117,7 +114,6 @@ export function PersonalInfoFields({ formData, onChange }: PersonalInfoFieldsPro
 
 
 
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     วัน/เดือน/ปีเกิด <span className="text-semantic-critical">*</span>

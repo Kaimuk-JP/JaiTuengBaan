@@ -145,7 +145,6 @@ export default function DiseaseAutocomplete({
 
     return (
         <div ref={containerRef} className="space-y-2x">
-            {}
             {value.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                     {value.map((disease, index) => (
@@ -167,7 +166,6 @@ export default function DiseaseAutocomplete({
                 </div>
             )}
 
-            {}
             <div className="relative">
                 <input
                     ref={inputRef}
@@ -181,14 +179,12 @@ export default function DiseaseAutocomplete({
                     style={{ fontSize: '1rem' }}
                 />
 
-                {}
                 {isLoading && (
                     <div className="absolute right-12 top-1/2 -translate-y-1/2">
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-btn-primary"></div>
                     </div>
                 )}
 
-                {}
                 <button
                     type="button"
                     onClick={() => setShowSuggestions(!showSuggestions)}
@@ -200,17 +196,14 @@ export default function DiseaseAutocomplete({
                     </svg>
                 </button>
 
-                {}
                 {hasDropdownContent && (
                     <div className="absolute left-0 right-0 bottom-full mb-1 bg-white border border-border-neutral rounded-square shadow-smooth-medium max-h-64 overflow-y-auto z-50">
-                        {}
                         {inputValue.trim().length === 0 && (
                             <div className="px-4 py-4 text-text-tertiary text-base">
                                 พิมพ์เพื่อค้นหาโรค
                             </div>
                         )}
 
-                        {}
                         {inputValue.trim().length > 0 && !isLoading && isCustomDisease && (
                             <button
                                 type="button"
@@ -225,7 +218,6 @@ export default function DiseaseAutocomplete({
                             </button>
                         )}
 
-                        {}
                         {inputValue.trim().length > 0 && !isLoading && suggestions.map((disease, index) => (
                             <button
                                 key={index}
@@ -239,7 +231,6 @@ export default function DiseaseAutocomplete({
                             </button>
                         ))}
 
-                        {}
                         {isLoading && (
                             <div className="px-4 py-4 text-center text-text-tertiary text-base">
                                 <div className="inline-block animate-spin rounded-full h-5 w-5 border-b-2 border-btn-primary mr-2"></div>
@@ -247,7 +238,6 @@ export default function DiseaseAutocomplete({
                             </div>
                         )}
 
-                        {}
                         {inputValue.trim().length > 0 && !isLoading && suggestions.length === 0 && !isCustomDisease && (
                             <div className="px-4 py-4 text-text-tertiary text-base">
                                 ไม่พบโรคที่ค้นหา

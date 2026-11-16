@@ -16,11 +16,6 @@ const nextConfig: NextConfig = {
         port: '3001',
         pathname: '/uploads/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'api-volunteer-eservice.govcenter.co',
-        pathname: '/uploads/**',
-      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -94,7 +89,7 @@ const nextConfig: NextConfig = {
                 "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com",
                 "font-src 'self' https://fonts.gstatic.com",
                 `img-src 'self' data: blob: https://profile.line-scdn.net https://*.tile.openstreetmap.org https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://cdnjs.cloudflare.com https://raw.githubusercontent.com https://api.mapbox.com https://*.tiles.mapbox.com https://*.google.com ${apiUrl}`,
-                `connect-src 'self' data: blob: https://api.line.me https://liff.line.me https://auth.govcenter.co https://api-auth.govcenter.co https://api.mapbox.com https://*.tiles.mapbox.com https://events.mapbox.com https://nominatim.openstreetmap.org ${apiUrl} ${wsUrl}`,
+                `connect-src 'self' data: blob: https://api.line.me https://liff.line.me https://api.mapbox.com https://*.tiles.mapbox.com https://events.mapbox.com https://nominatim.openstreetmap.org ${apiUrl} ${wsUrl}`,
                 "worker-src 'self' blob:",
                 "frame-src 'self' https://liff.line.me",
               ].join('; ');

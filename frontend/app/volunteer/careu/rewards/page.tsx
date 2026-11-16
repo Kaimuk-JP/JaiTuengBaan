@@ -177,13 +177,11 @@ export default function CareURewardsPage() {
             <div className="min-h-[100dvh] h-[100dvh] overflow-y-auto overflow-x-hidden bg-[#F5F5F5] dark:bg-gray-900 font-sans pb-24">
                 <CareUSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-                {}
                 <div className="bg-gradient-to-bl from-[#3AAE7D] to-[#346D55] dark:from-slate-800 dark:to-slate-900 text-white">
                     <CareUHeader user={null} onToggleSidebar={() => setSidebarOpen(true)} iconColor="white" />
                 </div>
 
                 <div className="px-4 mt-4 max-w-md mx-auto space-y-4">
-                    {}
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm p-5">
                         <div className="flex items-center gap-3 mb-3">
                             <GiftIcon size={28} />
@@ -199,7 +197,6 @@ export default function CareURewardsPage() {
                         </div>
                     </div>
 
-                    {}
                     <div className="flex gap-2">
                         <button
                             onClick={() => setActiveTab('rewards')}
@@ -223,7 +220,6 @@ export default function CareURewardsPage() {
                         </button>
                     </div>
 
-                    {}
                     {activeTab === 'rewards' && (
                         <>
                             {loading ? (
@@ -249,7 +245,6 @@ export default function CareURewardsPage() {
                                                 className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden shadow-sm"
                                             >
                                                 <div className="flex">
-                                                    {}
                                                     <div className="w-28 h-28 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/10 flex items-center justify-center relative shrink-0">
                                                         {reward.imageUrl ? (
                                                             <Image
@@ -269,7 +264,6 @@ export default function CareURewardsPage() {
                                                         )}
                                                     </div>
 
-                                                    {}
                                                     <div className="flex-1 p-3 flex flex-col justify-between min-w-0">
                                                         <div>
                                                             <h3 className="font-semibold text-sm text-gray-800 dark:text-white truncate">
@@ -327,7 +321,6 @@ export default function CareURewardsPage() {
                         </>
                     )}
 
-                    {}
                     {activeTab === 'history' && (
                         <>
                             {historyLoading ? (

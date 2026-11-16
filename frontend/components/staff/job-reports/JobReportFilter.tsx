@@ -22,7 +22,6 @@ export default function JobReportFilter({
     return (
         <div className="p-4 border-b border-slate-100 bg-white">
             <div className="flex gap-4">
-                {}
                 <div className="flex-1 relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +37,6 @@ export default function JobReportFilter({
                     />
                 </div>
 
-                {}
                 <div className="relative">
                     <button
                         onClick={() => setShowFilterDropdown(!showFilterDropdown)}
@@ -55,7 +53,6 @@ export default function JobReportFilter({
 
                     {showFilterDropdown && (
                         <>
-                            {}
                             <div
                                 className="fixed inset-0 z-10"
                                 onClick={() => setShowFilterDropdown(false)}

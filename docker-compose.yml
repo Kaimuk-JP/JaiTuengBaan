@@ -36,7 +36,6 @@ services:
       - FRONTEND_URL=${FRONTEND_URL}
       - SWAGGER_USER=${SWAGGER_USER}
       - SWAGGER_PASSWORD=${SWAGGER_PASSWORD}
-      - IAM_GOV_API_URL=https://api-auth.govcenter.co
       - E_SERVICE_API_KEY=${E_SERVICE_API_KEY}
       - E_SERVICE_CODE=${E_SERVICE_CODE}
     env_file:
@@ -69,7 +68,7 @@ services:
       - NEXT_PUBLIC_FRONTEND_URL=${NEXT_PUBLIC_FRONTEND_URL}
       - NEXT_PUBLIC_MAPBOX_TOKEN=${NEXT_PUBLIC_MAPBOX_TOKEN}
       - NEXT_PUBLIC_MAPBOX_STYLE=${NEXT_PUBLIC_MAPBOX_STYLE}
-      - GOV_API_URL=https://api-volunteer-eservice.govcenter.co/
+      - GOV_API_URL=http://backend:3001
     env_file:
       - .env
     depends_on:

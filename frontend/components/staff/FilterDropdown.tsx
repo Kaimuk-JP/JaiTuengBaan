@@ -43,7 +43,6 @@ export default function FilterDropdown({
 
     return (
         <div className={`relative ${className}`}>
-            {}
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`flex items-center gap-2 px-4 py-2.5 border rounded-lg transition-colors ${isOpen || totalSelected > 0
@@ -62,19 +61,15 @@ export default function FilterDropdown({
                 )}
             </button>
 
-            {}
             {isOpen && (
                 <>
-                    {}
                     <div
                         className="fixed inset-0 z-10"
                         onClick={() => setIsOpen(false)}
                     />
 
-                    {}
                     <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-slate-200 z-20 overflow-hidden">
                         <div className="p-4">
-                            {}
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="font-semibold text-slate-900">ตัวกรอง</h3>
                                 {totalSelected > 0 && (
@@ -87,7 +82,6 @@ export default function FilterDropdown({
                                 )}
                             </div>
 
-                            {}
                             {groups.map((group, groupIndex) => (
                                 <div key={groupIndex} className={groupIndex > 0 ? 'mt-4 pt-4 border-t border-slate-200' : ''}>
                                     <h4 className="text-sm font-medium text-slate-700 mb-2">{group.title}</h4>

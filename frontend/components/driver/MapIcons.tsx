@@ -21,7 +21,6 @@ export function PassengerMarker({ pictureUrl, onClick }: PassengerMarkerProps) {
                 <path d="M21 49.5C22.3807 49.5 23.5 50.6193 23.5 52C23.5 53.3807 22.3807 54.5 21 54.5C19.6193 54.5 18.5 53.3807 18.5 52C18.5 50.6193 19.6193 49.5 21 49.5Z" fill="#196444" stroke="white" />
                 <rect x="4.5" y="4.5" width="33" height="33" rx="16.5" fill="#E9E9E9" stroke="white" />
             </svg>
-            {}
             {imageUrl && (
                 <div style={{
                     position: 'absolute',

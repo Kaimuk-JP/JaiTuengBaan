@@ -209,10 +209,8 @@ export default function PetitionList() {
     return (
         <main className="p-3x pb-20 bg-white min-h-screen">
 
-            {}
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
 
-                {}
                 <PetitionFilter
                     searchTerm={searchTerm}
                     onSearchChange={setSearchTerm}
@@ -221,7 +219,6 @@ export default function PetitionList() {
                     onClearFilters={clearFilters}
                 />
 
-                {}
                 <div className="bg-white min-h-[calc(100vh-280px)] overflow-x-auto">
                     <PetitionTable
                         loading={loading}
@@ -233,9 +230,7 @@ export default function PetitionList() {
                     />
                 </div>
             </div>
-            {}
 
-            {}
             <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between z-30">
                 <span className="text-sm text-slate-500">
                     หน้า {currentPage} จาก {Math.max(1, pagination.totalPages)} หน้า
@@ -258,7 +253,6 @@ export default function PetitionList() {
                 </div>
             </div>
 
-            {}
             {isModalOpen && selectedRequest && (
                 <PetitionDetailModal
                     request={selectedRequest}

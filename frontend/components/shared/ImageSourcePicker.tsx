@@ -84,7 +84,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
 
     return (
         <>
-            {}
             <input
                 ref={galleryInputRef}
                 type="file"
@@ -92,7 +91,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                 onChange={handleFileChange}
                 className="hidden"
             />
-            {}
             <input
                 ref={nativeCameraInputRef}
                 type="file"
@@ -102,7 +100,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                 className="hidden"
             />
 
-            {}
             <CameraCapture
                 isOpen={showCamera}
                 onClose={() => setShowCamera(false)}
@@ -110,7 +107,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                 onFallbackCamera={handleNativeCameraFallback}
             />
 
-            {}
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
@@ -120,7 +116,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                         className="bg-white dark:bg-gray-800 w-full sm:w-80 sm:rounded-2xl rounded-t-2xl shadow-2xl animate-slideUp overflow-hidden"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {}
                         <div className="px-5 pt-5 pb-3 text-center">
                             <h3 className="text-lg font-bold text-text-primary dark:text-gray-100">
                                 เลือกรูปภาพจาก
@@ -130,9 +125,7 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                             </p>
                         </div>
 
-                        {}
                         <div className="px-4 pb-2 space-y-2">
-                            {}
                             <button
                                 onClick={handleChooseCamera}
                                 className="w-full flex items-center gap-4 p-4 rounded-xl bg-[#F0FDF4] dark:bg-gray-700 hover:bg-[#DCFCE7] dark:hover:bg-gray-600 transition-colors active:scale-[0.98]"
@@ -149,7 +142,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                                 </div>
                             </button>
 
-                            {}
                             <button
                                 onClick={handleChooseGallery}
                                 className="w-full flex items-center gap-4 p-4 rounded-xl bg-[#EFF6FF] dark:bg-gray-700 hover:bg-[#DBEAFE] dark:hover:bg-gray-600 transition-colors active:scale-[0.98]"
@@ -168,7 +160,6 @@ export default function ImageSourcePicker({ isOpen, onClose, onImageSelected, ma
                             </button>
                         </div>
 
-                        {}
                         <div className="px-4 pt-1 pb-5">
                             <button
                                 onClick={onClose}

@@ -11,7 +11,6 @@ export function MedicalInfoFields({
 }: MedicalInfoFieldsProps) {
     return (
         <div>
-            {}
             <div>
                 <label className="block text-sm font-medium text-text-primary mb-1.5">
                     โรคประจำตัว

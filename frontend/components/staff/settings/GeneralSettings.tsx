@@ -192,7 +192,6 @@ export default function GeneralSettings({ embedded = false }: GeneralSettingsPro
         <div className={embedded ? 'space-y-4' : 'p-4 sm:p-6 space-y-4'}>
             {sections.map((section) => (
                 <div key={section.id} className="bg-white dark:bg-gray-800 rounded-2xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-sm transition-all">
-                    {}
                     <button
                         onClick={() => toggleSection(section.id)}
                         className={`w-full flex items-center justify-between p-4 sm:p-5 transition-all hover:bg-slate-50 dark:hover:bg-gray-700 ${openSection === section.id ? 'border-b border-slate-200 dark:border-gray-700' : ''}`}
@@ -209,7 +208,6 @@ export default function GeneralSettings({ embedded = false }: GeneralSettingsPro
                         <ChevronDown className={`w-5 h-5 text-slate-400 dark:text-gray-500 transition-transform duration-300 flex-shrink-0 ${openSection === section.id ? 'rotate-180' : ''}`} />
                     </button>
 
-                    {}
                     {openSection === section.id && (
                         <div className="p-4 sm:p-6 animate-[fadeIn_0.2s_ease-in-out]">
                             {section.id === 'booking-limit' && (
@@ -260,7 +258,6 @@ export default function GeneralSettings({ embedded = false }: GeneralSettingsPro
                                         คลิกวันที่เพื่อตั้ง limit เฉพาะวัน
                                     </p>
                                     <div className="grid lg:grid-cols-2 gap-6">
-                                        {}
                                         <div className="bg-slate-50 dark:bg-gray-900/50 rounded-2xl p-4 sm:p-5">
                                             <div className="flex justify-between items-center mb-4">
                                                 <button
@@ -297,7 +294,6 @@ export default function GeneralSettings({ embedded = false }: GeneralSettingsPro
                                             </div>
                                         </div>
 
-                                        {}
                                         <div className="space-y-4">
                                             {selectedDate && (
                                                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-4 sm:p-5 border border-blue-100 dark:border-blue-800/30">
@@ -354,7 +350,6 @@ export default function GeneralSettings({ embedded = false }: GeneralSettingsPro
                                                 </div>
                                             )}
 
-                                            {}
                                             {dateLimits.length > 0 && (
                                                 <div className="bg-white dark:bg-gray-800 rounded-2xl border border-slate-200 dark:border-gray-700 overflow-hidden">
                                                     <div className="px-4 py-3 bg-slate-50 dark:bg-gray-900/50 border-b border-slate-200 dark:border-gray-700">

@@ -219,7 +219,6 @@ export default function RedemptionList() {
 
     return (
         <div className="p-6">
-            {}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-amber-50 rounded-lg">
@@ -236,7 +235,6 @@ export default function RedemptionList() {
                     </div>
                 </div>
 
-                {}
                 <div className="flex gap-2">
                     {['', 'PENDING', 'APPROVED', 'COMPLETED', 'REJECTED'].map((status) => (
                         <button
@@ -253,7 +251,6 @@ export default function RedemptionList() {
                 </div>
             </div>
 
-            {}
             {loading ? (
                 <div className="flex justify-center py-12">
                     <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-primary"></div>
@@ -270,7 +267,6 @@ export default function RedemptionList() {
                             className="bg-white rounded-xl p-4 border border-border-default"
                         >
                             <div className="flex items-start gap-4">
-                                {}
                                 <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center overflow-hidden flex-shrink-0">
                                     {redemption.user.pictureUrl ? (
                                         <Image
@@ -286,7 +282,6 @@ export default function RedemptionList() {
                                     )}
                                 </div>
 
-                                {}
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-start justify-between gap-2 mb-2">
                                         <div>
@@ -331,7 +326,6 @@ export default function RedemptionList() {
                                         </p>
                                     )}
 
-                                    {}
                                     {redemption.status === 'PENDING' && (
                                         <div className="flex gap-2 mt-3">
                                             <button

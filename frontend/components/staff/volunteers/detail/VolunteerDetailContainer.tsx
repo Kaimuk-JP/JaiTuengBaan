@@ -146,7 +146,6 @@ export default function VolunteerDetailContainer() {
 
     return (
         <div className="p-6">
-            {}
             <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-glacier-light rounded-lg flex items-center justify-center">
@@ -161,16 +160,13 @@ export default function VolunteerDetailContainer() {
                 </div>
             </div>
 
-            {}
             <div className="flex gap-6">
-                {}
                 <VolunteerProfileCard
                     volunteer={volunteer}
                     activeTab={activeTab}
                     onTabChange={setActiveTab}
                 />
 
-                {}
                 <div className="flex-1">
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         {activeTab === 'personal' && (

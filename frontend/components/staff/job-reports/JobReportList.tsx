@@ -157,9 +157,7 @@ export default function JobReportList() {
 
     return (
         <div className="p-3x pb-20">
-            {}
             <div className="flex-1 bg-white rounded-square-hard border border-border-neutral shadow-smooth-low overflow-hidden min-h-[calc(92vh-160px)]">
-                {}
                 <JobReportFilter
                     searchTerm={searchTerm}
                     onSearchChange={setSearchTerm}
@@ -168,7 +166,6 @@ export default function JobReportList() {
                     onClearFilters={clearFilters}
                 />
 
-                {}
                 <JobReportTable
                     loading={loading}
                     jobs={filteredJobs}
@@ -176,7 +173,6 @@ export default function JobReportList() {
                 />
             </div>
 
-            {}
             <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between z-30">
                 <div className="text-sm text-text-tertiary font-medium">
                     แสดงหน้า {currentPage} จาก {totalPages}
@@ -190,7 +186,6 @@ export default function JobReportList() {
                         ก่อนหน้า
                     </button>
 
-                    {}
                     {(() => {
                         const pages: number[] = [];
                         let start = Math.max(1, currentPage - 2);
@@ -233,17 +228,14 @@ export default function JobReportList() {
                 </div>
             </div>
 
-            {}
             {
                 isMapModalOpen && selectedJob && (
                     <>
-                        {}
                         <div
                             className="fixed inset-0 bg-black/50 z-40"
                             onClick={() => setIsMapModalOpen(false)}
                         />
 
-                        {}
                         <LocationMapModal
                             queue={{
                                 id: selectedJob.id,

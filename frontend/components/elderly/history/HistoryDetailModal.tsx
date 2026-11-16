@@ -81,7 +81,6 @@ export function HistoryDetailModal({
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {}
                 <div className="sticky top-0 bg-white z-10 px-4 py-3 border-b border-border-neutral flex items-center justify-between">
                     <div className="w-6"></div>
                     <h2 className=" text-brand-primary font-bold">ประวัติการจอง</h2>
@@ -95,17 +94,13 @@ export function HistoryDetailModal({
                     </button>
                 </div>
 
-                {}
                 <div className="mx-3x mt-3x mb-3x bg-white rounded-square-hard shadow-smooth-medium border border-brand-primary overflow-hidden">
-                    {}
                     <div className="px-3x pt-3x pb-2x">
                         <h3 className="typo-body font-medium text-text-primary">รายละเอียด</h3>
                     </div>
                     <div className="border-t border-border-neutral mx-3x mb-3x"></div>
 
-                    {}
                     <div className="flex flex-col items-center px-3x pb-3x">
-                        {}
                         <div className="w-16 h-16 rounded-full bg-fuji-light flex items-center justify-center overflow-hidden mb-2x">
                             {queue.user?.pictureUrl && !userImgError ? (
                                 <img
@@ -121,37 +116,30 @@ export function HistoryDetailModal({
                             )}
                         </div>
 
-                        {}
                         <p className="typo-body font-medium text-text-primary">
                             {getUserDisplayName()}
                         </p>
                     </div>
 
-                    {}
                     <div className="px-3x pb-3x space-y-2x">
-                        {}
                         <p className="typo-menu text-text-primary">
                             ประเภทการจอง : <span className="font-normal">{queue.hasAppointment ? 'มีใบนัด' : 'ไม่มีใบนัด'}</span>
                         </p>
 
-                        {}
                         <p className="typo-menu text-text-primary">
                             <span className="font-normal">{queue.hospitalName}</span>
                         </p>
 
-                        {}
                         <p className="typo-menu text-text-primary">
                             วันที่จอง : <span className="font-normal">{formatDate(queue.requestDate)}</span>
                         </p>
 
-                        {}
                         <p className="typo-menu text-text-primary">
                             ช่วงเวลาที่จอง : <span className="font-normal">
                                 {formatTime(queue.bookingTime, queue.requestDate)}
                             </span>
                         </p>
 
-                        {}
                         <div className="flex items-center gap-1x">
                             <span className="typo-menu text-text-primary">สถานะการจอง :</span>
                             <span className="bg-apple-soft text-brand-primary typo-menu px-2x py-0.5 rounded-square">
@@ -159,7 +147,6 @@ export function HistoryDetailModal({
                             </span>
                         </div>
 
-                        {}
                         {queue.appointmentImage && (
                             <div>
                                 <p className="typo-menu text-text-primary mb-1x">รูปใบนัด</p>
@@ -176,17 +163,13 @@ export function HistoryDetailModal({
                         )}
                     </div>
 
-                    {}
                     <div className="border-t border-brand-primary mx-3x"></div>
 
-                    {}
                     <div className="px-3x pt-3x pb-2x">
                         <h3 className="typo-body font-medium text-text-primary">เจ้าหน้าที่ขับรถ</h3>
                     </div>
 
-                    {}
                     <div className="flex items-center gap-3x px-3x pb-3x">
-                        {}
                         <div className="w-16 h-16 rounded-full bg-fuji-light flex items-center justify-center overflow-hidden flex-shrink-0">
                             {assignedJob?.vlt?.pictureUrl && !vltImgError ? (
                                 <img
@@ -202,7 +185,6 @@ export function HistoryDetailModal({
                             )}
                         </div>
 
-                        {}
                         {assignedJob && assignedJob.vlt ? (
                             <div className="space-y-0.5">
                                 <p className="typo-menu text-text-secondary">

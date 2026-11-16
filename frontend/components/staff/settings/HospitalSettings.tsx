@@ -149,7 +149,6 @@ export default function HospitalSettings() {
                 </span>
             </div>
 
-            {}
             <div className="flex gap-3 mb-6">
                 <div className="flex-1 relative group">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-gray-500 group-focus-within:text-blue-500 transition-colors" />
@@ -172,7 +171,6 @@ export default function HospitalSettings() {
                 </button>
             </div>
 
-            {}
             <div className="grid gap-3 max-h-[500px] overflow-y-auto">
                 {hospitals.map((hospital) => (
                     <div
@@ -240,14 +238,12 @@ export default function HospitalSettings() {
                     </div>
                 )}
 
-                {}
                 {isLoadingMore && (
                     <div className="flex justify-center py-4">
                         <div className="w-6 h-6 border-2 border-brand-primary border-t-transparent rounded-full animate-spin"></div>
                     </div>
                 )}
 
-                {}
                 {hospitalHasMore && <div ref={sentinelRef} className="h-4" />}
             </div>
         </div>

@@ -11,7 +11,6 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class AuthService {
   private readonly logger = new Logger(AuthService.name);
-  private readonly failedAdminLoginAttempts = new Map<string, { count: number; lockedUntil: number }>();
 
   constructor(
     private prisma: PrismaService,
@@ -309,14 +308,10 @@ export class AuthService {
     const frontendUrl = process.env.FRONTEND_URL || '';
     const isHttps = frontendUrl.startsWith('https');
 
-    const isProduction = frontendUrl.includes('govcenter.co');
-    const cookieDomain = isProduction ? '.govcenter.co' : undefined;
-
     res.cookie('access_token', access_token, {
       httpOnly: true,
       secure: isHttps,
       sameSite: 'strict',
-      domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
     });
@@ -325,7 +320,6 @@ export class AuthService {
       httpOnly: true,
       secure: isHttps,
       sameSite: 'strict',
-      domain: cookieDomain,
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: '/',
     });
@@ -447,14 +441,10 @@ export class AuthService {
     const frontendUrl = process.env.FRONTEND_URL || '';
     const isHttps = frontendUrl.startsWith('https');
 
-    const isProduction = frontendUrl.includes('govcenter.co');
-    const cookieDomain = isProduction ? '.govcenter.co' : undefined;
-
     res.cookie('access_token', access_token, {
       httpOnly: true,
       secure: isHttps,
       sameSite: 'strict',
-      domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
     });
@@ -463,7 +453,6 @@ export class AuthService {
       httpOnly: true,
       secure: isHttps,
       sameSite: 'strict',
-      domain: cookieDomain,
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: '/',
     });
@@ -900,34 +889,5 @@ export class AuthService {
     };
   }
 
-  async adminLogin(idCard: string, phone: string) {
-    const now = Date.now();
-    const record = this.failedAdminLoginAttempts.get(idCard);
-    if (record && record.lockedUntil > now) {
-      const waitMinutes = Math.ceil((record.lockedUntil - now) / 60000);
-      throw new UnauthorizedException(`คุณกรอกข้อมูลผิดเกินจำนวนครั้งที่กำหนด กรุณารออีก ${waitMinutes} นาที`);
-    }
-
-    const user = await this.prisma.user.findFirst({
-      where: {
-        idCard: idCard,
-        phone: phone,
-      },
-    });
-
-    if (!user) {
-      const count = (record?.count || 0) + 1;
-      if (count >= 5) {
-        this.failedAdminLoginAttempts.set(idCard, { count, lockedUntil: now + 15 * 60 * 1000 });
-        throw new UnauthorizedException('คุณกรอกข้อมูลผิดเกิน 5 ครั้ง บัญชีถูกระงับชั่วคราว 15 นาที');
-      } else {
-        this.failedAdminLoginAttempts.set(idCard, { count, lockedUntil: 0 });
-      }
-      throw new UnauthorizedException('เลขบัตรประชาชนหรือเบอร์โทรศัพท์ไม่ถูกต้อง');
-    }
-
-    this.failedAdminLoginAttempts.delete(idCard);
-    return user;
-  }
 }
 

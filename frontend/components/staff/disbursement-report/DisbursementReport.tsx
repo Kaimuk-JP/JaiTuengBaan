@@ -329,7 +329,6 @@ export default function DisbursementReport() {
                                     />
                                 ))}
                             </tbody>
-                            {}
                             {!searchQuery && (
                                 <tfoot>
                                     <tr className="bg-emerald-50 font-bold text-emerald-800 border-t-2 border-emerald-200">
@@ -342,7 +341,6 @@ export default function DisbursementReport() {
                             )}
                         </table>
 
-                        {}
                         {totalPages > 1 && (
                             <div className="flex items-center justify-between px-5 py-4 border-t border-slate-100 bg-white">
                                 <div className="text-sm text-slate-500">
@@ -386,7 +384,6 @@ export default function DisbursementReport() {
                 <div className="text-center py-32 text-slate-400">ไม่สามารถโหลดข้อมูลได้</div>
             ) : viewMode === 'MAIN' ? (
                 <div className="animate-in fade-in duration-300">
-                    {}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-5 mb-6">
                         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
                             <div className="flex flex-wrap items-center gap-3">
@@ -444,7 +441,6 @@ export default function DisbursementReport() {
                         </div>
                     </div>
 
-                    {}
                     <div className="mb-6">
                         <h2 className="text-xl font-bold text-slate-800">
                             {startDate && endDate
@@ -454,7 +450,6 @@ export default function DisbursementReport() {
                         <p className="text-sm text-slate-500 mt-1">{data.summary.organizationName}</p>
                     </div>
 
-                    {}
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                         <SummaryCard
                             title="เคสเสร็จสิ้นทั้งหมด"
@@ -479,7 +474,6 @@ export default function DisbursementReport() {
                         />
                     </div>
 
-                    {}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6 flex items-center gap-3">
                         <div className="w-10 h-10 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600">
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -490,10 +484,8 @@ export default function DisbursementReport() {
                         </div>
                     </div>
 
-                    {}
                     {renderVolunteerTable(true)}
 
-                    {}
                     <div className="mt-6 text-center text-xs text-slate-400">
                         พิมพ์วันที่ {new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })} เวลา {new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })} น.
                     </div>

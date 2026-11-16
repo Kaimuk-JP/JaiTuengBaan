@@ -204,7 +204,6 @@ export function BookingCalendar({ value, onChange, hasAppointment }: BookingCale
 
     return (
         <div className="bg-white dark:bg-gray-800 rounded-square-hard border border-border-neutral dark:border-gray-600 p-2x shadow-smooth-low w-full max-w-sm mx-auto">
-            {}
             <div className="flex justify-between items-center mb-2x">
                 <button onClick={() => changeMonth(-1)} className="p-1 hover:bg-field-default rounded-full text-text-tertiary">
                     <ChevronLeftIcon />
@@ -218,7 +217,6 @@ export function BookingCalendar({ value, onChange, hasAppointment }: BookingCale
             </div>
 
 
-            {}
             <div className="grid grid-cols-7 text-center mb-1x">
                 {daysOfWeek.map(d => (
                     <div key={d} className="typo-tags font-semibold text-text-placeholder">
@@ -227,14 +225,12 @@ export function BookingCalendar({ value, onChange, hasAppointment }: BookingCale
                 ))}
             </div>
 
-            {}
             <div className="grid grid-cols-7 text-center gap-y-2 gap-x-1 justify-items-center">
                 {isLoading ? (
                     <div className="col-span-7 py-3x text-text-placeholder typo-menu">กำลังโหลดข้อมูล...</div>
                 ) : renderDays()}
             </div>
 
-            {}
             {value && !isLoading && (
                 <div className="mt-2x text-center">
                     {(() => {

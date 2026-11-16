@@ -138,12 +138,10 @@ export default function EquipmentDemandChart({ data }: EquipmentDemandChartProps
 
     return (
         <div className="h-full">
-            {}
             <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 sm:mb-3">
                 ปริมาณความต้องการ อุปกรณ์เสริม
             </h3>
 
-            {}
             <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-4 sm:p-5 shadow-lg border border-slate-200/60 transition-all duration-300 hover:shadow-xl">
                 {sortedData.length > 0 ? (
                     <div className="h-[240px] sm:h-[260px] md:h-[270px]">

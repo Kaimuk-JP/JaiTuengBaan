@@ -831,7 +831,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
     if (displayRequests.length === 0 && !authLoading) {
         return (
             <div className="h-full w-full flex flex-col items-center justify-center bg-gray-50 text-center px-4 relative">
-                {}
                 <button
                     onClick={exitToCalendar}
                     className="absolute top-4 left-4 z-[1000] flex items-center gap-1.5 bg-white dark:bg-gray-800 text-brand-primary shadow-lg rounded-full px-4 py-2.5 hover:shadow-xl active:scale-95 transition-all border border-gray-200 dark:border-gray-600"
@@ -860,14 +859,12 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
 
     return (
         <div className="h-full w-full flex flex-col bg-gray-50">
-            {}
             {!shouldShowMap && (
                 <div className="px-6 py-4 bg-white border-b">
                     <h1 className="text-2xl font-bold text-center text-[#1E7D55]">งานที่ได้รับมอบหมาย</h1>
                 </div>
             )}
 
-            {}
             {shouldShowMap && (
                 <div className="flex-1 relative bg-gray-200">
                     <MapView
@@ -886,7 +883,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                         orderedHospitalReturn={orderedHospitalReturn}
                     />
 
-                    {}
                     {isTracking && (
                         <div className="absolute top-4 right-4 z-[1000] bg-brand-primary text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2">
                             <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
@@ -900,7 +896,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                         </div>
                     )}
 
-                    {}
                     {isFullscreenMap && (
                         <MapControls
                             isTracking={isTracking}
@@ -916,7 +911,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                 </div>
             )}
 
-            {}
             {shouldShowMap && driverLocation ? (
                 <div
                     className="fixed bottom-0 left-0 right-0 z-[1001] shadow-[0_-5px_20px_rgba(0,0,0,0.15)] transition-all duration-300 ease-in-out"
@@ -938,7 +932,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                         }
                     }}
                 >
-                    {}
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -959,7 +952,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                         </svg>
                     </button>
 
-                    {}
                     {(() => {
                         if (!actionRequest?.job) return null;
 
@@ -987,7 +979,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
 
                         return (
                             <div className={`absolute left-4 right-[84px] -top-[70px] z-[1000] flex items-center ${isCareU ? 'min-h-14 h-auto' : 'h-14'}`}>
-                                {}
                                 {canUpdateStandardStatus && (
                                     <>
                                         {['ACCEPTED', 'ASSIGNED'].includes(jobStatus) && (
@@ -1026,7 +1017,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                                             </button>
                                         )}
 
-                                        {}
                                         {jobStatus === 'IN_TRANSIT' && isCarpool && !allPickedUp && (
                                             <button
                                                 onClick={() => {
@@ -1040,7 +1030,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                                             </button>
                                         )}
 
-                                        {}
                                         {jobStatus === 'IN_TRANSIT' && (allPickedUp || !isCarpool) && (
                                             <button
                                                 onClick={() => handleArrivedHospital(actionRequest.job!.id)}
@@ -1074,7 +1063,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                                             </button>
                                         )}
 
-                                        {}
                                         {jobStatus === 'RETURN_OFFICE' && isCarpool && !allDroppedOff && (
                                             <button
                                                 onClick={() => handleDeliveredAtHome(nextDropOff.job!.id)}
@@ -1094,7 +1082,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
 
 
 
-                                {}
                                 {canUpdateStandardStatus && canCompleteTrip && (() => {
                                     const org: any = activeRequest?.queue?.user?.organization || user?.organization;
                                     const isLockReturnOffice = !!(org?.lockReturnOfficeEnabled && org?.lat && org?.lng);
@@ -1159,7 +1146,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                         );
                     })()}
 
-                    {}
                     <div className="border-t-2 border-x-2 border-[#1E7D55] rounded-t-2xl bg-white shadow-lg overflow-hidden">
                         {sheetLevel >= 2 && user?.role === 'DRIVE' && queuePanelPhase && queuePanelRequests.length > 1 && (
                             <TripQueuePanel
@@ -1180,7 +1166,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                                 onResetAuto={() => resetAuto('hospitalReturn')}
                             />
                         )}
-                        {}
                         <NavigationPanel
                             navInfo={navigationInfo}
                             hospitalName={
@@ -1215,7 +1200,6 @@ export default function DriverMap({ initialJobId, onExitMap }: DriverMapProps) {
                             isEmbedded={true}
                         />
 
-                        {}
                         {sheetLevel >= 2 && (
                             <div ref={patientInfoRef} className={`pt-4 pb-2 overflow-hidden border-t border-gray-200 flex flex-col ${sheetLevel === 3 ? 'max-h-[50vh]' : 'max-h-[200px]'}`}>
                                 <div className="flex flex-col gap-4 w-full h-full overflow-y-auto pt-0 pb-4 no-scrollbar items-start flex-1">

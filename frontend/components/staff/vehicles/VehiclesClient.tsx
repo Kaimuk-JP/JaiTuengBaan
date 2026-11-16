@@ -240,7 +240,6 @@ export default function VehiclesClient() {
 
     return (
         <div className="bg-white rounded-2xl shadow-sm p-4 space-y-4">
-            {}
             <div className="flex justify-between items-center">
                 <div>
                     <h2 className="text-xl font-bold text-gray-800">จัดการข้อมูลรถเทศบาล</h2>
@@ -258,9 +257,7 @@ export default function VehiclesClient() {
                 </button>
             </div>
 
-            {}
             <div className="border border-gray-200 dark:border-slate-700 rounded-2xl p-4 flex items-center divide-x divide-gray-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
-                {}
                 <div className="flex items-center gap-3 flex-1 px-4 first:pl-0">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-slate-600 flex items-center justify-center">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +272,6 @@ export default function VehiclesClient() {
                         <div className="text-2xl font-bold text-gray-900">{totalCount}</div>
                     </div>
                 </div>
-                {}
                 <div className="flex items-center gap-3 flex-1 px-4">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-white to-green-50 dark:from-green-900/40 dark:to-green-900/20 border border-gray-200 dark:border-green-800/50 flex items-center justify-center">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><mask id="mask_stat_ready" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><rect width="20" height="20" fill="#D9D9D9"/></mask><g mask="url(#mask_stat_ready)"><path d="M8.817 11.788L6.881 9.852C6.766 9.736 6.621 9.677 6.446 9.675C6.271 9.672 6.124 9.731 6.003 9.852C5.882 9.973 5.822 10.119 5.822 10.291C5.822 10.463 5.882 10.609 6.003 10.73L8.29 13.017C8.441 13.168 8.616 13.243 8.817 13.243C9.018 13.243 9.194 13.168 9.344 13.017L13.981 8.381C14.096 8.265 14.155 8.12 14.158 7.945C14.16 7.771 14.101 7.623 13.981 7.502C13.86 7.382 13.713 7.321 13.542 7.321C13.37 7.321 13.223 7.382 13.102 7.502L8.817 11.788ZM10.001 17.916C8.906 17.916 7.877 17.708 6.914 17.293C5.95 16.877 5.112 16.313 4.399 15.601C3.687 14.888 3.123 14.051 2.707 13.088C2.291 12.125 2.083 11.096 2.083 10.001C2.083 8.906 2.291 7.877 2.707 6.914C3.122 5.949 3.686 5.111 4.398 4.399C5.111 3.686 5.949 3.122 6.912 2.706C7.875 2.29 8.904 2.083 9.999 2.083C11.094 2.083 12.123 2.29 13.086 2.706C14.05 3.121 14.888 3.685 15.6 4.398C16.313 5.11 16.877 5.948 17.293 6.911C17.709 7.875 17.917 8.904 17.917 9.999C17.917 11.093 17.709 12.122 17.293 13.085C16.878 14.049 16.314 14.887 15.601 15.6C14.889 16.312 14.051 16.877 13.088 17.292C12.125 17.708 11.096 17.916 10.001 17.916Z" fill="#009D12"/></g></svg>
@@ -285,7 +281,6 @@ export default function VehiclesClient() {
                         <div className="text-2xl font-bold text-gray-900">{readyCount}</div>
                     </div>
                 </div>
-                {}
                 <div className="flex items-center gap-3 flex-1 px-4">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-white to-red-50 dark:from-red-900/40 dark:to-red-900/20 border border-gray-200 dark:border-red-800/50 flex items-center justify-center">
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M13.221 14.458L14.391 13.289C14.484 13.196 14.531 13.087 14.531 12.963C14.531 12.839 14.484 12.73 14.391 12.637L10.789 9.019C10.874 8.83 10.939 8.632 10.982 8.426C11.025 8.22 11.046 7.991 11.046 7.739C11.046 6.823 10.72 6.04 10.068 5.389C9.415 4.739 8.63 4.414 7.712 4.414C7.546 4.414 7.389 4.422 7.239 4.439C7.089 4.455 6.939 4.49 6.789 4.544C6.654 4.598 6.571 4.699 6.541 4.846C6.511 4.994 6.548 5.119 6.652 5.223L8.425 7.006L6.948 8.483L5.156 6.7C5.052 6.596 4.926 6.559 4.779 6.59C4.631 6.62 4.53 6.703 4.473 6.84C4.431 6.992 4.399 7.143 4.378 7.295C4.357 7.447 4.346 7.605 4.346 7.769C4.346 8.687 4.672 9.473 5.325 10.125C5.977 10.778 6.763 11.104 7.681 11.104C7.916 11.104 8.138 11.081 8.346 11.035C8.554 10.988 8.759 10.926 8.962 10.846L12.566 14.448C12.659 14.542 12.767 14.59 12.888 14.593C13.008 14.596 13.115 14.551 13.221 14.458Z" fill="#E44343"/><circle cx="9.5" cy="9.5" r="9" stroke="#E44343"/></svg>
@@ -295,7 +290,6 @@ export default function VehiclesClient() {
                         <div className="text-2xl font-bold text-gray-900">{maintenanceCount}</div>
                     </div>
                 </div>
-                {}
                 <div className="flex items-center gap-3 flex-1 px-4 last:pr-0">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-white to-gray-100 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-slate-600 flex items-center justify-center">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><mask id="mask_stat_inactive" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><rect width="20" height="20" fill="#D9D9D9"/></mask><g mask="url(#mask_stat_inactive)"><path d="M10.478 13.747C10.608 13.617 10.673 13.457 10.673 13.269C10.673 13.081 10.608 12.922 10.478 12.792C10.347 12.662 10.188 12.596 10 12.596C9.812 12.596 9.653 12.662 9.523 12.792C9.392 12.922 9.327 13.081 9.327 13.269C9.327 13.457 9.392 13.617 9.523 13.747C9.653 13.877 9.812 13.943 10 13.943C10.188 13.943 10.347 13.877 10.478 13.747ZM10.445 10.718C10.565 10.598 10.625 10.45 10.625 10.273V6.523C10.625 6.346 10.565 6.197 10.445 6.077C10.325 5.958 10.177 5.898 10 5.898C9.823 5.898 9.674 5.958 9.555 6.077C9.435 6.197 9.375 6.346 9.375 6.523V10.273C9.375 10.45 9.435 10.598 9.555 10.718C9.675 10.838 9.823 10.898 10 10.898C10.177 10.898 10.326 10.838 10.445 10.718ZM10.001 17.917C8.906 17.917 7.877 17.709 6.914 17.293C5.95 16.878 5.112 16.314 4.4 15.602C3.687 14.889 3.123 14.052 2.707 13.088C2.291 12.125 2.083 11.096 2.083 10.002C2.083 8.907 2.291 7.877 2.707 6.914C3.122 5.95 3.686 5.112 4.399 4.4C5.111 3.687 5.949 3.123 6.912 2.707C7.875 2.291 8.904 2.083 9.999 2.083C11.094 2.083 12.123 2.291 13.086 2.707C14.05 3.122 14.888 3.686 15.6 4.399C16.313 5.111 16.877 5.948 17.293 6.912C17.709 7.875 17.917 8.904 17.917 9.999C17.917 11.094 17.709 12.123 17.293 13.086C16.878 14.05 16.314 14.888 15.601 15.601C14.889 16.313 14.051 16.877 13.088 17.293C12.125 17.709 11.096 17.917 10.001 17.917Z" fill="#818181"/></g></svg>
@@ -307,9 +301,7 @@ export default function VehiclesClient() {
                 </div>
             </div>
 
-            {}
             <div className="flex items-center gap-4">
-                {}
                 <div className="flex items-center border border-gray-200 dark:border-slate-700 rounded-xl h-[44px] overflow-hidden bg-white dark:bg-slate-800 flex-1">
                     <div className="pl-3 flex items-center pointer-events-none">
                         <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +316,6 @@ export default function VehiclesClient() {
                         className="flex-1 h-full pl-2 pr-3 bg-transparent placeholder-gray-400 focus:outline-none text-sm"
                     />
                 </div>
-                {}
                 <div className="flex items-center gap-2 border border-gray-200 rounded-xl h-[44px] px-3 bg-white">
                     <span className="text-sm text-gray-500 whitespace-nowrap">สถานะ:</span>
                     <select
@@ -341,7 +332,6 @@ export default function VehiclesClient() {
                 </div>
             </div>
 
-            {}
             <div className="border border-gray-200 rounded-xl overflow-x-auto">
                 <table className="w-full border-collapse">
                     <colgroup>

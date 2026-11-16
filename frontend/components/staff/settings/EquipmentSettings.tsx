@@ -164,7 +164,6 @@ export default function EquipmentSettings({ embedded = false }: EquipmentSetting
                 </span>
             </div>
 
-            {}
             <div className="flex gap-3 mb-6">
                 <div className="flex-1 relative group">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-gray-500 group-focus-within:text-brand-primary transition-colors" />
@@ -187,7 +186,6 @@ export default function EquipmentSettings({ embedded = false }: EquipmentSetting
                 </button>
             </div>
 
-            {}
             <div className="space-y-2 max-h-[500px] overflow-y-auto">
                 {equipment.map((item) => (
                     <div
@@ -256,14 +254,12 @@ export default function EquipmentSettings({ embedded = false }: EquipmentSetting
                     </div>
                 )}
 
-                {}
                 {isLoadingMore && (
                     <div className="flex justify-center py-4">
                         <div className="w-6 h-6 border-2 border-brand-primary border-t-transparent rounded-full animate-spin"></div>
                     </div>
                 )}
 
-                {}
                 {hasMore && <div ref={sentinelRef} className="h-4" />}
             </div>
         </div>

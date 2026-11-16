@@ -90,9 +90,7 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
 
     return (
         <div className="flex flex-col items-center gap-2x">
-            {}
             <div className="relative">
-                {}
                 <div
                     className="w-28 h-28 aspect-square rounded-full overflow-hidden border-4 border-border-neutral bg-fuji-light cursor-pointer hover:border-border-hover transition-colors"
                     onClick={handleImageClick}
@@ -116,7 +114,6 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                     )}
                 </div>
 
-                {}
                 <div
                     className="absolute bottom-0 right-0 w-8 h-8 bg-fuji-medium rounded-full flex items-center justify-center border-2 border-white cursor-pointer hover:bg-fuji-dark transition-colors"
                     onClick={handleImageClick}
@@ -127,10 +124,8 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                 </div>
             </div>
 
-            {}
             <p className="typo-caption text-text-tertiary">กดเพื่อเพิ่มรูปโปรไฟล์</p>
 
-            {}
             <input
                 type="file"
                 accept="image/*"
@@ -139,7 +134,6 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                 id="profile-image-gallery"
             />
 
-            {}
             <input
                 type="file"
                 accept="image/*"
@@ -149,36 +143,29 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                 id="profile-image-camera"
             />
 
-            {}
             {isBottomSheetOpen && (
                 <div className="fixed inset-0 z-50 flex items-end justify-center">
-                    {}
                     <div
                         className="absolute inset-0 bg-black transition-opacity duration-300"
                         style={{ opacity: isBottomSheetVisible ? 0.5 : 0 }}
                         onClick={closeBottomSheet}
                     />
 
-                    {}
                     <div
                         className="relative w-full max-w-lg bg-white rounded-t-2xl transition-transform duration-300 ease-out"
                         style={{
                             transform: isBottomSheetVisible ? 'translateY(0)' : 'translateY(100%)',
                         }}
                     >
-                        {}
                         <div className="flex justify-center pt-3 pb-1">
                             <div className="w-10 h-1 bg-gray-300 rounded-full" />
                         </div>
 
-                        {}
                         <div className="px-6 pt-2 pb-4 text-center">
                             <h3 className="text-lg font-semibold text-text-primary">เลือกรูปโปรไฟล์</h3>
                         </div>
 
-                        {}
                         <div className="px-6 pb-2">
-                            {}
                             <button
                                 type="button"
                                 onClick={handleCameraSelect}
@@ -192,7 +179,6 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                                 <span className="text-base text-text-primary">ถ่ายรูป</span>
                             </button>
 
-                            {}
                             <button
                                 type="button"
                                 onClick={handleGallerySelect}
@@ -209,7 +195,6 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                             </button>
                         </div>
 
-                        {}
                         <div className="px-6 pb-6 pt-2">
                             <button
                                 type="button"
@@ -223,7 +208,6 @@ export function ProfileImageUpload({ currentImageUrl, onImageSelect, onPreviewCh
                 </div>
             )}
 
-            {}
             <WebcamModal
                 isOpen={isWebcamOpen}
                 onClose={() => setIsWebcamOpen(false)}

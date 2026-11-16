@@ -345,7 +345,6 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 
 
 
-            {}
             {showMunicipalModal && municipalJobId && (
                 <MunicipalRatingModal
                     isOpen={showMunicipalModal}

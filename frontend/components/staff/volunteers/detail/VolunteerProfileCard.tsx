@@ -42,7 +42,6 @@ export default function VolunteerProfileCard({ volunteer, activeTab, onTabChange
     return (
         <div className="w-72 flex-shrink-0">
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-                {}
                 <div className="flex flex-col items-center mb-6">
                     <div className="w-28 h-28 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden mb-4">
                         {volunteer?.pictureUrl ? (
@@ -67,13 +66,11 @@ export default function VolunteerProfileCard({ volunteer, activeTab, onTabChange
                     </h2>
                     <p className="text-sm text-text-tertiary">เจ้าหน้าที่จิตอาสา</p>
 
-                    {}
                     <div className="mt-3 flex items-center gap-2 px-4 py-1.5 bg-yellow-50 rounded-full border border-yellow-200">
                         <span className="text-sm font-bold text-yellow-700">{volunteer ? volunteer.pointsBalance : 0} คะแนน</span>
                     </div>
                 </div>
 
-                {}
                 <div className="space-y-2">
                     {tabs.map((tab) => (
                         <button

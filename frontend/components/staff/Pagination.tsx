@@ -57,7 +57,6 @@ export default function Pagination({
                 {total !== undefined ? `แสดงหน้า ${currentPage} จาก ${totalPages}` : `หน้า ${currentPage} จาก ${totalPages}`}
             </p>
             <div className="flex gap-2">
-                {}
                 <button
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={prevDisabled}
@@ -66,7 +65,6 @@ export default function Pagination({
                     ก่อนหน้า
                 </button>
 
-                {}
                 {showPageNumbers && getPageNumbers().map((pageNum) => (
                     <button
                         key={pageNum}
@@ -80,7 +78,6 @@ export default function Pagination({
                     </button>
                 ))}
 
-                {}
                 <button
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={nextDisabled}

@@ -32,7 +32,6 @@ export default function VolunteerForm({
     };
     return (
         <form onSubmit={onSubmit} className="space-y-6">
-            {}
             <div className="grid grid-cols-2 gap-4">
                 <div>
                     <label className="block text-sm font-medium text-text-secondary mb-2">ชื่อ</label>
@@ -58,7 +57,6 @@ export default function VolunteerForm({
                 </div>
             </div>
 
-            {}
             <div>
                 <label className="block text-sm font-medium text-text-secondary mb-2">เพศ</label>
                 <select
@@ -73,7 +71,6 @@ export default function VolunteerForm({
                 </select>
             </div>
 
-            {}
             <div>
                 <label className="block text-sm font-medium text-text-secondary mb-2">เบอร์โทร</label>
                 <input
@@ -86,7 +83,6 @@ export default function VolunteerForm({
                 />
             </div>
 
-            {}
             <div>
                 <label className="block text-sm font-medium text-text-secondary mb-2">วันเดือนปีเกิด</label>
                 <input
@@ -98,7 +94,6 @@ export default function VolunteerForm({
                 />
             </div>
 
-            {}
             <div className="pt-4 border-t border-slate-100">
                 <h3 className="text-lg font-bold text-text-primary mb-4">ข้อมูลที่อยู่</h3>
 
@@ -178,7 +173,6 @@ export default function VolunteerForm({
                 </div>
             </div>
 
-            {}
             <div className="flex justify-center gap-4 pt-6">
                 <button
                     type="button"

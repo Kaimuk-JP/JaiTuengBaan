@@ -174,7 +174,6 @@ export default function RealTimeMap() {
                     }
                 }}
             >
-                {}
                 {myLocation && (
                     <Marker
                         longitude={myLocation.lng}
@@ -185,7 +184,6 @@ export default function RealTimeMap() {
                     </Marker>
                 )}
 
-                {}
                 {Object.values(otherLocations).map((loc) => (
                     <Marker
                         key={loc.id}
@@ -209,7 +207,6 @@ export default function RealTimeMap() {
                     </Marker>
                 ))}
 
-                {}
                 {destination && (
                     <Marker
                         longitude={destination.lng}
@@ -220,7 +217,6 @@ export default function RealTimeMap() {
                     </Marker>
                 )}
 
-                {}
                 {myLocation && destination && (
                     <Routing
                         pathPoints={[

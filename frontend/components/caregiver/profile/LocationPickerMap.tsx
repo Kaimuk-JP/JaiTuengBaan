@@ -175,7 +175,6 @@ export default function LocationPickerMap() {
                 )}
             </Map>
 
-            {}
             <div className="absolute top-0 left-0 right-0 z-[1000] bg-white shadow-md">
                 <div className="px-5 py-4 flex items-center justify-between">
                     <button onClick={handleCancel} className="flex items-center gap-2 text-text-tertiary hover:text-text-primary">

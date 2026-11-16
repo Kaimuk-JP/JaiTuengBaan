@@ -272,7 +272,6 @@ export default function RatingsReport() {
 
     return (
         <div className="p-4 space-y-4">
-            {}
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
                 <div className="flex flex-wrap items-end gap-3">
                     <div>
@@ -304,7 +303,6 @@ export default function RatingsReport() {
                 </div>
             </div>
 
-            {}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-900/20 rounded-2xl p-4 border border-blue-200 dark:border-blue-800/50">
                     <p className="text-xs font-medium text-blue-600 dark:text-blue-400 mb-1">เทศบาล</p>
@@ -346,7 +344,6 @@ export default function RatingsReport() {
                 </div>
             </div>
 
-            {}
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
                 <div className="flex border-b border-slate-200 dark:border-slate-700">
                     {tabs.map((tab) => (
@@ -367,12 +364,10 @@ export default function RatingsReport() {
                 </div>
 
                 <div className="p-4">
-                    {}
                     {subTab === 'municipal' && (
                         <div className="space-y-4">
                             {data.summary.totalMunicipalRatings > 0 ? (
                                 <>
-                                    {}
                                     <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 space-y-3">
                                         <h3 className="text-sm font-bold text-text-primary mb-2">คะแนนเฉลี่ยรายด้าน</h3>
                                         {municipalCriteria.map((c) => (
@@ -385,7 +380,6 @@ export default function RatingsReport() {
                                         ))}
                                     </div>
 
-                                    {}
                                     <div className="flex items-center justify-between">
                                         <h3 className="text-sm font-bold text-text-primary">รายการประเมินทั้งหมด</h3>
                                         <span className="text-xs text-text-tertiary">
@@ -420,7 +414,6 @@ export default function RatingsReport() {
                         </div>
                     )}
 
-                    {}
                     {subTab === 'driver' && (
                         <div className="space-y-2">
                             {data.drivers.length > 0 ? (
@@ -451,7 +444,6 @@ export default function RatingsReport() {
                         </div>
                     )}
 
-                    {}
                     {subTab === 'careu' && (
                         <div className="space-y-2">
                             {data.careus.length > 0 ? (
@@ -484,14 +476,12 @@ export default function RatingsReport() {
                 </div>
             </div>
 
-            {}
             {selectedPerson && (
                 <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setSelectedPerson(null)}>
                     <div
                         className="bg-white dark:bg-slate-800 rounded-2xl w-full max-w-lg max-h-[80vh] overflow-hidden shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {}
                         <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
                             <div>
                                 <h3 className="font-bold text-text-primary text-lg">{selectedPerson.name}</h3>
@@ -512,7 +502,6 @@ export default function RatingsReport() {
                             </div>
                         </div>
 
-                        {}
                         <div className="overflow-y-auto max-h-[60vh] p-4 space-y-2">
                             {selectedPerson.jobs.length > 0 ? selectedPerson.jobs.map((j: any) => (
                                 <div key={j.jobId} className="bg-slate-50 dark:bg-slate-800 rounded-xl p-3 flex justify-between items-center">

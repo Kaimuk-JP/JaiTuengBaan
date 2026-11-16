@@ -410,7 +410,6 @@ export default function PetitionList() {
                 </div>
             </div>
 
-            {}
             <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between z-30">
                 <span className="text-sm text-slate-500">
                     หน้า {currentPage} จาก {Math.max(1, totalPages)} หน้า
@@ -433,7 +432,6 @@ export default function PetitionList() {
                 </div>
             </div>
 
-            {}
             <PatientDetailModal
                 queue={selectedQueue}
                 isOpen={isModalOpen}

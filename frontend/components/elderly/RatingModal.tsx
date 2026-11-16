@@ -134,7 +134,6 @@ export default function RatingModal({
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3x">
             <div className="bg-white rounded-square-hard shadow-smooth-high max-w-md w-full p-3x animate-fadeIn">
-                {}
                 <div className="text-center mb-3x">
                     <h2 className=" font-bold text-brand-primary mb-1x">
                         แบบประเมินการบริการ
@@ -144,7 +143,6 @@ export default function RatingModal({
                     </p>
                 </div>
 
-                {}
                 <div className="mb-3x">
                     <div className="flex justify-center gap-2x mb-3x">
                         {ratings.map((rating) => (
@@ -163,7 +161,6 @@ export default function RatingModal({
                     </div>
                 </div>
 
-                {}
                 <div className="bg-field-default rounded-square-hard p-2x mb-3x">
                     <p className="typo-menu text-text-tertiary mb-2x text-center">เจ้าหน้าที่ขับรถ</p>
                     <div className="flex items-center gap-2x">
@@ -193,7 +190,6 @@ export default function RatingModal({
                     </div>
                 </div>
 
-                {}
                 {selectedRating !== null && (
                     <div className="mb-3x animate-fadeIn">
                         <label className="typo-body text-text-tertiary mb-1x block">
@@ -209,7 +205,6 @@ export default function RatingModal({
                     </div>
                 )}
 
-                {}
                 <div className="flex gap-2x">
                     <button
                         onClick={() => {

@@ -51,7 +51,6 @@ export function ElderlyProfileImage({ picturePreview, onImageChange }: ElderlyPr
                         </svg>
                     )}
                 </div>
-                {}
                 <div
                     className="absolute bottom-0 right-0 w-8 h-8 bg-white rounded-lg border border-border-neutral flex items-center justify-center cursor-pointer shadow-sm hover:bg-field-default transition-colors"
                     onClick={handleImageClick}

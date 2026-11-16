@@ -11,7 +11,6 @@ function PetitionEditPage() {
 
     return (
         <StaffLayout user={currentUser}>
-            {}
             <StaffHeader
                 title="คำร้องขอแก้ไขข้อมูล"
                 icon={
@@ -23,7 +22,6 @@ function PetitionEditPage() {
                 }
             />
 
-            {}
             <PetitionList />
         </StaffLayout>
     );

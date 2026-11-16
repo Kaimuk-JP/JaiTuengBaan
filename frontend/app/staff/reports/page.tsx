@@ -71,7 +71,6 @@ function ReportsPage() {
 
     return (
         <StaffLayout user={currentUser}>
-            {}
             <StaffHeader
                 title="รายงานและประวัติ"
                 icon={
@@ -83,7 +82,6 @@ function ReportsPage() {
                 }
             />
 
-            {}
             <div className="px-3x bg-white border-b border-slate-200 sticky top-0 z-20">
                 <div className="flex gap-1">
                     {TABS.map((tab) => (
@@ -102,7 +100,6 @@ function ReportsPage() {
                                 {tab.icon}
                             </span>
                             {tab.label}
-                            {}
                             {activeTab === tab.id && (
                                 <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-brand-primary rounded-t-full" />
                             )}
@@ -111,7 +108,6 @@ function ReportsPage() {
                 </div>
             </div>
 
-            {}
             {activeTab === 'disbursement' && <DisbursementReport />}
             {activeTab === 'history' && <StaffHistoryContent />}
             {activeTab === 'rewards' && <RewardHistoryContainer />}

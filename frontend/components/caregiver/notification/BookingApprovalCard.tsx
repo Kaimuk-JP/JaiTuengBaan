@@ -47,11 +47,9 @@ export default function BookingApprovalCard({
 
     return (
         <div className="space-y-3">
-            {}
             <div className="bg-white rounded-xl border-2 border-brand-primary p-4 max-w-sm mx-auto">
                 <h3 className="text-lg font-semibold text-text-primary mb-4">ข้อมูลการจอง</h3>
 
-                {}
                 <div className="flex justify-center mb-4">
                     <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
                         {patientPictureUrl ? (
@@ -71,10 +69,8 @@ export default function BookingApprovalCard({
                     </div>
                 </div>
 
-                {}
                 <p className="text-center font-semibold text-text-primary mb-4">{patientName}</p>
 
-                {}
                 <div className="space-y-2 text-sm">
                     <p className="text-text-tertiary">
                         <span className="font-medium">ประเภทการจอง :</span>{' '}
@@ -92,7 +88,6 @@ export default function BookingApprovalCard({
                     </p>
                 </div>
 
-                {}
                 {showActions && (
                     <div className="flex gap-3 mt-4 justify-center">
                         {onConfirm && (
@@ -123,12 +118,10 @@ export default function BookingApprovalCard({
                 )}
             </div>
 
-            {}
             {volunteer && (
                 <div className="bg-white rounded-xl border-2 border-brand-primary p-4 max-w-sm mx-auto">
                     <h3 className="text-lg font-semibold text-text-primary mb-4 text-center">เจ้าหน้าที่ขับรถ</h3>
 
-                    {}
                     <div className="flex justify-center mb-3">
                         <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
                             {volunteer.pictureUrl ? (
@@ -148,7 +141,6 @@ export default function BookingApprovalCard({
                         </div>
                     </div>
 
-                    {}
                     <div className="text-center text-sm">
                         <p className="text-text-tertiary">
                             <span className="font-medium">ชื่อ</span> {volunteer.displayName}

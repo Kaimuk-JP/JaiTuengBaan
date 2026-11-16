@@ -27,23 +27,18 @@ export default function ElderlyHomeContent() {
             <div className="min-h-screen bg-white dark:bg-gray-900">
 
 
-                {}
                 <ElderlySidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-                {}
                 <ElderlyHeader user={user} onToggleSidebar={() => setSidebarOpen(true)} />
 
-                {}
                 <div className="container mx-auto px-3x py-3x">
                     <div className="max-w-md lg:max-w-2xl mx-auto">
-                        {}
                         <div className="mb-3x">
                             <h1 className=" text-brand-primary text-center">
                                 บริการหลัก
                             </h1>
                         </div>
 
-                        {}
                         <div className="space-y-3">
                             {elderlyMenuItems.map((item, index) => (
                                 <MenuCard

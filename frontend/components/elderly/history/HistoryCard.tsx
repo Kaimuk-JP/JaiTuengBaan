@@ -15,7 +15,6 @@ export function HistoryCard({ item, onDetailsClick, formatDate }: HistoryCardPro
     return (
         <div className="bg-white dark:bg-gray-800 rounded-square-hard shadow-smooth-low border border-border-neutral dark:border-gray-700 p-3x flex items-center justify-between hover:shadow-smooth-medium transition-shadow">
             <div className="space-y-1x flex-1">
-                {}
                 <div className="flex items-start gap-2x">
                     <div className="w-5 flex-shrink-0 mt-0.5">
                         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +26,6 @@ export function HistoryCard({ item, onDetailsClick, formatDate }: HistoryCardPro
                     </span>
                 </div>
 
-                {}
                 <div className="flex items-start gap-2x">
                     <div className="w-5 flex-shrink-0 mt-0.5">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +35,6 @@ export function HistoryCard({ item, onDetailsClick, formatDate }: HistoryCardPro
                     <span className="typo-menu text-text-primary">{item.hospitalName}</span>
                 </div>
 
-                {}
                 <div className="flex items-start gap-2x">
                     <div className="w-5 flex-shrink-0 mt-0.5">
                         <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">

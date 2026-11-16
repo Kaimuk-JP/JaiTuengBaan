@@ -130,7 +130,6 @@ function RatingSelector({
 }) {
     return (
         <div className="bg-gray-50 rounded-2xl p-4">
-            {}
             <div className="flex items-center gap-3 mb-3">
                 {person.pictureUrl ? (
                     <Image
@@ -157,7 +156,6 @@ function RatingSelector({
                 </div>
             </div>
 
-            {}
             <div className="flex justify-center gap-2 mb-3">
                 {ratingOptions.map((rating) => (
                     <button
@@ -183,7 +181,6 @@ function RatingSelector({
                 ))}
             </div>
 
-            {}
             <textarea
                 value={comment}
                 onChange={(e) => onCommentChange(e.target.value)}
@@ -329,16 +326,13 @@ export default function FeedbackModal({
 
     return (
         <>
-            {}
             <div
                 className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] flex items-start justify-center pt-6 p-4 overflow-y-auto"
             >
-                {}
                 <div
                     className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-5 relative animate-scale-in my-4"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    {}
                     <div className="text-center mb-4">
                         <h2 className="text-xl font-bold text-brand-primary mb-1">
                             แบบประเมินการบริการ
@@ -348,7 +342,6 @@ export default function FeedbackModal({
                         </p>
                     </div>
 
-                    {}
                     <div className="space-y-3 mb-4">
                         <RatingSelector
                             label="เจ้าหน้าที่รถ"
@@ -363,7 +356,6 @@ export default function FeedbackModal({
                             uniqueKey="driver"
                         />
 
-                        {}
                         {careu && (
                             <RatingSelector
                                 label="จิตอาสาแคร์ยู"
@@ -380,7 +372,6 @@ export default function FeedbackModal({
                         )}
                     </div>
 
-                    {}
                     <div className="flex gap-3">
                         <button
                             type="button"

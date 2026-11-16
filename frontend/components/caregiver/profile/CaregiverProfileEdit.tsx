@@ -375,24 +375,18 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
 
     return (
         <div className="min-h-screen bg-white">
-            {}
             <CaregiverSidebar user={currentUser} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-            {}
             <CaregiverHeader user={currentUser} variant="default" onToggleSidebar={() => setSidebarOpen(true)} />
 
-            {}
             <div className="px-[16px] py-[16px]">
-                {}
                 <div className="mb-3x">
                     <h1 className=" font-bold text-brand-primary text-center">
                         ขอแก้ไขข้อมูล
                     </h1>
                 </div>
 
-                {}
                 <div>
-                    {}
                     <div className="flex justify-center mb-3x">
                         <div className="relative">
                             <div
@@ -417,7 +411,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                                 )}
                             </div>
 
-                            {}
                             <div
                                 className="absolute bottom-0 right-0 w-8 h-8 bg-fuji-medium rounded-full flex items-center justify-center cursor-pointer hover:bg-fuji-medium-dark transition-colors"
                                 onClick={handleImageClick}
@@ -430,9 +423,7 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                     </div>
 
 
-                    {}
                     <div className="space-y-4">
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 เลขบัตรประชาชน
@@ -479,7 +470,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                             />
                         </div>
 
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 เพศ
@@ -510,7 +500,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                             </div>
                         </div>
 
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 เบอร์โทรศัพท์
@@ -531,7 +520,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                         </div>
 
 
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 วันเดือนปีเกิด
@@ -542,7 +530,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                             />
                         </div>
 
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 เลือกที่อยู่
@@ -567,7 +554,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                             </button>
                         </div>
 
-                        {}
                         <div>
                             <label className="typo-body text-text-tertiary mb-1x block">
                                 รายละเอียดที่อยู่
@@ -582,7 +568,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                         </div>
                     </div>
 
-                    {}
                     <div className="mt-4x">
                         <button
                             onClick={handleSubmit}
@@ -595,7 +580,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                 </div>
             </div>
 
-            {}
             {showMap && (
                 <MapPicker
                     initialLat={parseCoordinates(formData.lat, formData.lng)?.lat}
@@ -606,7 +590,6 @@ export default function CaregiverProfileEdit({ user, onUpdate }: CaregiverProfil
                 />
             )}
 
-            {}
             <ImageSourcePicker
                 isOpen={showImagePicker}
                 onClose={() => setShowImagePicker(false)}

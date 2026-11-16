@@ -309,18 +309,14 @@ const App: React.FC = () => {
         <div className="min-h-screen p-4 sm:p-8 flex flex-col items-center justify-center bg-white dark:bg-gray-900"
             style={{ fontFamily: 'Noto Sans Thai, Inter, sans-serif' }}
         >
-            {}
             <h1 className="text-2xl font-semibold text-center text-emerald-700 dark:text-emerald-400 mb-6">
                 ขอแก้ไขข้อมูล
             </h1>
 
             <div className="max-w-lg w-full p-6 sm:p-10">
 
-                {}
                 <div className="w-32 h-32 mx-auto relative mb-10">
-                    {}
                     <div className="w-full h-full rounded-full bg-emerald-50 dark:bg-gray-800 shadow-inner overflow-hidden">
-                        {}
                         {(previewUrl || profilePicture) ? (
                             <img
                                 src={previewUrl || profilePicture}
@@ -334,14 +330,12 @@ const App: React.FC = () => {
                         )}
                     </div>
 
-                    {}
                     <button
                         type="button"
                         onClick={handleImageClick}
                         aria-label="Edit Profile Picture"
                         className="absolute bottom-0 right-0 p-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full shadow-lg transition duration-150 transform hover:scale-110 border-2 border-white dark:border-gray-900"
                     >
-                        {}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.61905 16.7302H2.98067L14.0296 5.68124L12.668 4.31962L1.61905 15.3685V16.7302ZM0.975746 18.3492C0.699249 18.3492 0.467545 18.2557 0.280635 18.0686C0.0935448 17.8817 0 17.65 0 17.3735V15.5035C0 15.2403 0.0505501 14.9894 0.151651 14.7509C0.252571 14.5123 0.39163 14.3045 0.568825 14.1273L14.2374 0.464936C14.4005 0.316703 14.5807 0.202201 14.7779 0.121429C14.9752 0.0404762 15.1821 0 15.3985 0C15.6149 0 15.8245 0.0384079 16.0272 0.115223C16.2301 0.192038 16.4098 0.314185 16.5661 0.481666L17.8843 1.8163C18.0518 1.97263 18.1711 2.15252 18.2423 2.35598C18.3136 2.55944 18.3492 2.7629 18.3492 2.96637C18.3492 3.1835 18.3122 3.39065 18.238 3.58781C18.1639 3.78515 18.046 3.96541 17.8843 4.12857L4.22194 17.7804C4.04474 17.9576 3.83687 18.0966 3.59833 18.1976C3.35979 18.2987 3.10893 18.3492 2.84575 18.3492H0.975746ZM13.3369 5.0123L12.668 4.31962L14.0296 5.68124L13.3369 5.0123Z" fill="#1C1B1F" />
                         </svg>
@@ -350,10 +344,8 @@ const App: React.FC = () => {
 
                 </div>
 
-                {}
                 <form onSubmit={handleSubmit} className="space-y-4">
 
-                    {}
                     <div>
                         <label htmlFor="citizenId" className={customLabelClasses}>เลขบัตรประจำตัวประชาชน</label>
                         <input
@@ -369,7 +361,6 @@ const App: React.FC = () => {
                         />
                     </div>
 
-                    {}
                     <div className="grid grid-cols-1 gap-4">
                         <div>
                             <label htmlFor="firstName" className={customLabelClasses}>ชื่อ</label>
@@ -401,7 +392,6 @@ const App: React.FC = () => {
                         </div>
                     </div>
 
-                    {}
                     <div className="pt-2">
                         <span className={customLabelClasses.replace('mb-1', 'mb-3')}>เพศ</span>
                         <div className="flex space-x-8 mt-2">
@@ -430,7 +420,6 @@ const App: React.FC = () => {
                         </div>
                     </div>
 
-                    {}
                     <div>
                         <label htmlFor="phoneNumber" className={customLabelClasses}>เบอร์โทรศัพท์</label>
                         <input
@@ -446,7 +435,6 @@ const App: React.FC = () => {
                         />
                     </div>
 
-                    {}
                     <div>
                         <label htmlFor="dateOfBirth" className={customLabelClasses}>วันเดือนปีเกิด</label>
                         <ThaiDatePicker
@@ -455,7 +443,6 @@ const App: React.FC = () => {
                         />
                     </div>
 
-                    {}
                     <div>
                         <label htmlFor="address" className={customLabelClasses}>ที่อยู่</label>
                         <textarea
@@ -491,7 +478,6 @@ const App: React.FC = () => {
                         </button>
                     </div>
 
-                    {}
                     <div className="pt-6 flex justify-center">
                         <button
                             type="submit"
@@ -514,7 +500,6 @@ const App: React.FC = () => {
                 </form>
             </div>
 
-            {}
             <ImageSourcePicker
                 isOpen={showImagePicker}
                 onClose={() => setShowImagePicker(false)}

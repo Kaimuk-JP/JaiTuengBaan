@@ -20,7 +20,7 @@ import { JwtAuthGuard } from '../../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../../common/guards/roles.guard';
 import { Roles } from '../../../common/decorators/roles.decorator';
 import { Public } from '../../../common/decorators/public.decorator';
-import { UpdateUserRoleDto, SwitchRoleDto, AdminLoginDto } from './dto';
+import { UpdateUserRoleDto, SwitchRoleDto } from './dto';
 import { ConfigService } from '../../../core/config';
 import { Throttle } from '@nestjs/throttler';
 
@@ -52,31 +52,6 @@ export class AuthController {
       throw new BadRequestException('ต้องระบุ code และ redirectUri');
     }
     const user = await this.authService.handleLineLogin(body.code, body.redirectUri);
-    return this.authService.login(user, res, req);
-  }
-
-  @Post('admin-login')
-  @Public()
-  @Throttle({ default: { ttl: 60000, limit: 5 } })
-  @ApiOperation({ summary: 'Admin/Staff Login ด้วยเลขบัตรประชาชน + เบอร์โทร' })
-  @ApiResponse({ status: 200, description: 'Login สำเร็จ' })
-  @ApiResponse({ status: 401, description: 'ข้อมูลไม่ถูกต้องหรือไม่มีสิทธิ์' })
-  async adminLogin(
-    @Body() adminLoginDto: AdminLoginDto,
-    @Res({ passthrough: true }) res: Response,
-    @Req() req: any,
-  ) {
-    const { idCard, phone } = adminLoginDto;
-
-    if (!idCard || idCard.length !== 13) {
-      throw new BadRequestException('เลขบัตรประชาชนต้องมี 13 หลัก');
-    }
-
-    if (!phone || phone.length !== 10) {
-      throw new BadRequestException('เบอร์โทรศัพท์ต้องมี 10 หลัก');
-    }
-
-    const user = await this.authService.adminLogin(idCard, phone);
     return this.authService.login(user, res, req);
   }
 
@@ -236,9 +211,6 @@ export class AuthController {
     const frontendUrl = process.env.FRONTEND_URL || '';
     const isHttps = frontendUrl.startsWith('https');
 
-    const isProduction = frontendUrl.includes('govcenter.co');
-    const cookieDomain = isProduction ? '.govcenter.co' : undefined;
-
     const commonOptions = {
       httpOnly: true,
       secure: isHttps,
@@ -246,25 +218,8 @@ export class AuthController {
       path: '/',
     };
 
-    if (cookieDomain) {
-      res.clearCookie('access_token', {
-        ...commonOptions,
-        domain: cookieDomain,
-      });
-      res.clearCookie('refresh_token', {
-        ...commonOptions,
-        domain: cookieDomain,
-      });
-    }
-
-    res.clearCookie('access_token', {
-      ...commonOptions,
-      domain: undefined,
-    });
-    res.clearCookie('refresh_token', {
-      ...commonOptions,
-      domain: undefined,
-    });
+    res.clearCookie('access_token', commonOptions);
+    res.clearCookie('refresh_token', commonOptions);
 
     res.clearCookie('next-auth.session-token', {
       httpOnly: true,

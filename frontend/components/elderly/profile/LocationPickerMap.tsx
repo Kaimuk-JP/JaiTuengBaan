@@ -174,7 +174,6 @@ export default function LocationPickerMap() {
                     }
                 }}
             >
-                {}
                 {currentLocation && (
                     <Marker
                         longitude={currentLocation.lng}
@@ -185,7 +184,6 @@ export default function LocationPickerMap() {
                     </Marker>
                 )}
 
-                {}
                 {selectedLocation && (
                     <Marker
                         longitude={selectedLocation.lng}
@@ -197,7 +195,6 @@ export default function LocationPickerMap() {
                 )}
             </Map>
 
-            {}
             <div className="absolute top-0 left-0 right-0 z-[1000] bg-white shadow-md">
                 <div className="px-5 py-4 flex items-center justify-between">
                     <button
@@ -214,7 +211,6 @@ export default function LocationPickerMap() {
                 </div>
             </div>
 
-            {}
             {selectedLocation && (
                 <div className="absolute bottom-0 left-0 right-0 z-[1000] bg-white rounded-t-3xl shadow-2xl p-6">
                     <div className="mb-4">
@@ -238,7 +234,6 @@ export default function LocationPickerMap() {
                         </div>
                     </div>
 
-                    {}
                     <div className="space-y-3">
                         {currentLocation && (
                             <button
@@ -263,7 +258,6 @@ export default function LocationPickerMap() {
                 </div>
             )}
 
-            {}
             <div className="absolute top-20 left-4 z-[1000] bg-white p-3 rounded-lg shadow-lg border-2 border-border-neutral-light max-w-xs">
                 <p className="text-sm font-semibold mb-1 text-text-primary">💡 วิธีใช้งาน</p>
                 <p className="text-xs text-text-tertiary">คลิกบนแผนที่เพื่อเลือกตำแหน่งที่อยู่ของคุณ</p>

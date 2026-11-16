@@ -139,7 +139,6 @@ export default function VolunteerWorkHistory({ volunteerId, points }: VolunteerW
 
     return (
         <div className="space-y-6">
-            {}
             <h3 className="text-[1.75rem] font-normal text-text-primary leading-[140%]">คะแนนสะสม</h3>
             <div className="bg-white rounded-xl border border-brand-primary p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
@@ -175,7 +174,6 @@ export default function VolunteerWorkHistory({ volunteerId, points }: VolunteerW
                                     ) : loadedJobs[group.date]?.length > 0 ? (
                                         loadedJobs[group.date].map(job => (
                                             <div key={job.id} className="bg-white border boundary-gray-200 rounded-xl p-4 flex flex-col md:flex-row items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
-                                                {}
                                                 <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-100">
                                                     {job.pictureUrl ? (
                                                         <Image src={job.pictureUrl} alt={job.name} width={64} height={64} className="object-cover w-full h-full" unoptimized />
@@ -184,7 +182,6 @@ export default function VolunteerWorkHistory({ volunteerId, points }: VolunteerW
                                                     )}
                                                 </div>
 
-                                                {}
                                                 <div className="flex-1 text-center md:text-left">
                                                     <h4 className="text-lg font-semibold text-text-primary">{job.name}</h4>
                                                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-1">
@@ -195,7 +192,6 @@ export default function VolunteerWorkHistory({ volunteerId, points }: VolunteerW
                                                     </div>
                                                 </div>
 
-                                                {}
                                                 <div className="text-lg font-semibold text-text-primary">
                                                     ได้รับ {job.points} คะแนน
                                                 </div>

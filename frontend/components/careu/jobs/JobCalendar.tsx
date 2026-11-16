@@ -327,7 +327,6 @@ export default function JobCalendar() {
         <div className="min-h-[100dvh] h-[100dvh] overflow-y-auto overflow-x-hidden bg-[#F5F5F5] dark:bg-gray-900 font-sans pb-24">
             <CareUSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-            {}
             <div className="bg-gradient-to-bl from-[#3AAE7D] to-[#346D55] dark:from-slate-800 dark:to-slate-900 text-white relative">
                 <CareUHeader
                     user={null}
@@ -336,15 +335,12 @@ export default function JobCalendar() {
                 />
             </div>
 
-            {}
             <div className="px-4 mt-4 max-w-md mx-auto space-y-4">
 
-                {}
                 <div className="flex items-center gap-2 mb-2">
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white">คิวงานวัน ณ ปัจจุบัน</h1>
                 </div>
 
-                {}
                 <div className="grid grid-cols-2 gap-3">
                     <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm">
                         <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">งานที่รอดำเนินการ</p>
@@ -356,9 +352,7 @@ export default function JobCalendar() {
                     </div>
                 </div>
 
-                {}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm">
-                    {}
                     <div className="flex items-center justify-between mb-3">
                         <button onClick={prevMonth} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -371,14 +365,12 @@ export default function JobCalendar() {
                         </button>
                     </div>
 
-                    {}
                     <div className="grid grid-cols-7 gap-1 mb-1">
                         {THAI_DAYS_SHORT.map(d => (
                             <div key={d} className="text-center text-xs font-medium text-gray-400 dark:text-gray-500 py-1">{d}</div>
                         ))}
                     </div>
 
-                    {}
                     <div className="grid grid-cols-7 gap-1">
                         {calendarDays.map((day, i) => {
                             if (day === null) return <div key={`e-${i}`} />;
@@ -415,7 +407,6 @@ export default function JobCalendar() {
                     </div>
                 </div>
 
-                {}
                 <div className="flex bg-white dark:bg-gray-800 rounded-xl p-1 border border-gray-100 dark:border-gray-700 shadow-sm">
                     <button
                         onClick={() => setActiveTab('upcoming')}
@@ -437,7 +428,6 @@ export default function JobCalendar() {
                     </button>
                 </div>
 
-                {}
                 <div className="space-y-3">
                     {groupedJobs.length === 0 ? (
                         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center border border-gray-100 dark:border-gray-700 shadow-sm">
@@ -472,7 +462,6 @@ export default function JobCalendar() {
                                     key={group.groupKey}
                                     className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden"
                                 >
-                                    {}
                                     <div className={`px-4 py-2 flex items-center justify-between ${st.bg} border-b`}>
                                         <div className="flex items-center gap-2">
                                             <span className={`w-2 h-2 rounded-full ${st.dot}`} />
@@ -490,12 +479,9 @@ export default function JobCalendar() {
                                         </div>
                                     </div>
 
-                                    {}
                                     <div className="p-4 flex flex-col gap-3">
-                                        {}
                                         <div className="flex flex-col gap-3 bg-gray-50/50 dark:bg-gray-800/50 rounded-xl p-3 border border-gray-100 dark:border-gray-700">
 
-                                            {}
                                             {group.jobs.map((job, idx) => (
                                                 <div
                                                     key={job.id}
@@ -564,7 +550,6 @@ export default function JobCalendar() {
                                             )}
                                         </div>
 
-                                        {}
                                         {group.jobs.some(j => j.note) && (
                                             <div className="text-sm text-gray-400 italic">
                                                 {group.jobs.filter(j => j.note).map((j, i) => (
@@ -573,7 +558,6 @@ export default function JobCalendar() {
                                             </div>
                                         )}
 
-                                        {}
                                         {(firstJob.status === 'IN_PROGRESS' || firstJob.status === 'UPCOMING') && firstJob.date === todayISO && (
                                             <div className="flex gap-2 w-full mt-2">
                                                 <button

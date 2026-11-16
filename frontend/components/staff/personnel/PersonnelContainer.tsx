@@ -84,7 +84,6 @@ export default function PersonnelContainer() {
 
     return (
         <div className="pb-32">
-            {}
             <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-200 mb-6 bg-white">
                 <div className="w-10 h-10 bg-glacier-light rounded-square flex items-center justify-center text-brand-primary">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +100,6 @@ export default function PersonnelContainer() {
 
 
 
-            {}
             <div className="mx-6 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 <PersonnelFilter
                     searchTerm={searchTerm}
@@ -113,7 +111,6 @@ export default function PersonnelContainer() {
                 <PersonnelList users={users} loading={loading} />
             </div>
 
-            {}
             {!loading && totalItems > 0 && (
                 <PersonnelPagination
                     currentPage={currentPage}

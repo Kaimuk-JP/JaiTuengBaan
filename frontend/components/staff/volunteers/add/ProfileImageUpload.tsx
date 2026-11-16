@@ -35,7 +35,6 @@ export default function ProfileImageUpload({
                     )}
                 </div>
 
-                {}
                 <button
                     type="button"
                     onClick={onStartWebcam}
@@ -48,7 +47,6 @@ export default function ProfileImageUpload({
                     </svg>
                 </button>
 
-                {}
                 <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
@@ -63,7 +61,6 @@ export default function ProfileImageUpload({
                 </button>
             </div>
 
-            {}
             <input
                 type="file"
                 ref={cameraInputRef}

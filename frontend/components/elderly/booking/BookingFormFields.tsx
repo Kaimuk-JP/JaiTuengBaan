@@ -161,7 +161,6 @@ export function BookingFormFields({
                 </h2>
             </div>
 
-            {}
             {showBookedForField && (
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
@@ -179,12 +178,10 @@ export function BookingFormFields({
                         }}
                     >
                         <option value="self">{`${user?.firstName || ''} ${user?.lastName || ''}`.trim() || user?.displayName || 'ตัวเอง'}</option>
-                        {}
                     </select>
                 </div>
             )}
 
-            {}
             <div className="relative" ref={dropdownRef}>
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     ค้นหาโรงพยาบาล
@@ -209,7 +206,6 @@ export function BookingFormFields({
                     </div>
                 </div>
 
-                {}
                 {showSuggestions && (
                     <div className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl shadow-lg max-h-60 overflow-y-auto overflow-x-hidden backdrop-blur-xl bg-opacity-95">
                         {isLoading ? (
@@ -235,7 +231,6 @@ export function BookingFormFields({
                 )}
             </div>
 
-            {}
             <div>
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     วันที่ต้องการจอง
@@ -247,7 +242,6 @@ export function BookingFormFields({
                 />
             </div>
 
-            {}
             <div>
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     เวลาที่ต้องการจอง

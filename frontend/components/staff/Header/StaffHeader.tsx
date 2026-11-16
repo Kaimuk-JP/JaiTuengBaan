@@ -53,7 +53,6 @@ export default function StaffHeader({
             </div>
 
             <div className="flex items-center gap-3">
-                {}
                 {onMenuClick && (
                     <button onClick={onMenuClick} className="p-2 text-gray-800 dark:text-white">
                         <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">

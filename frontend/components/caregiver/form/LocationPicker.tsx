@@ -107,7 +107,6 @@ export function LocationPicker({
 
     return (
         <div className="space-y-2x">
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     เลือกที่อยู่
@@ -132,7 +131,6 @@ export function LocationPicker({
                 </button>
             </div>
 
-            {}
             <div>
                 <label className="typo-body text-text-tertiary mb-1x block">
                     รายละเอียดที่อยู่ (เพิ่มเติม)

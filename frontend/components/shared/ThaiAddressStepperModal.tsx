@@ -127,7 +127,6 @@ export default function ThaiAddressStepperModal({ isOpen, onClose, onAddressSele
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 overflow-hidden">
             <div className="bg-white w-full max-w-lg h-[90vh] md:h-[600px] rounded-t-2xl md:rounded-2xl shadow-xl flex flex-col absolute bottom-0 md:relative">
-                {}
                 <div className="flex items-center gap-3 p-4 border-b border-gray-100">
                     <button onClick={onClose} className="p-2 -ml-2 text-gray-500 hover:bg-gray-100 rounded-full">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -149,7 +148,6 @@ export default function ThaiAddressStepperModal({ isOpen, onClose, onAddressSele
                     </div>
                 </div>
 
-                {}
                 <div className="p-4 border-b border-gray-100 bg-gray-50/50">
                     <div className="flex justify-between items-center mb-4">
                         <span className="text-xs text-gray-400 font-medium tracking-wide border px-2 py-0.5 rounded-full bg-white">เลือกที่อยู่</span>
@@ -227,7 +225,6 @@ export default function ThaiAddressStepperModal({ isOpen, onClose, onAddressSele
                     </div>
                 </div>
 
-                {}
                 <div className="bg-gray-100 px-4 py-2 text-xs text-gray-500 font-medium">
                     {step === 'provinceName' ? 'จังหวัด' : step === 'AMPHOE' ? 'เขต/อำเภอ' : step === 'districtName' ? 'แขวง/ตำบล' : 'รหัสไปรษณีย์'}
                 </div>

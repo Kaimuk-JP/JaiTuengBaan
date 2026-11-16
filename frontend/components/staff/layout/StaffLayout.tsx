@@ -137,7 +137,6 @@ export default function StaffLayout({ children, user: propUser }: StaffLayoutPro
                 onToggle={() => setCollapsed(!collapsed)}
             />
 
-            {}
             <main
                 className="flex-1 min-w-0 overflow-y-auto transition-all duration-300"
                 style={{ marginLeft: collapsed ? 64 : 280 }}

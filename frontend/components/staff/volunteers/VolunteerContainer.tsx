@@ -55,7 +55,6 @@ export default function VolunteerContainer() {
 
     return (
         <div>
-            {}
             <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-200 mb-6 bg-white">
                 <div className="w-10 h-10 bg-glacier-light rounded-square flex items-center justify-center">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +67,6 @@ export default function VolunteerContainer() {
                 <h1 className="text-4xl font-bold text-gray-900">สมาชิกจิตอาสา</h1>
             </div>
 
-            {}
             <div className="mx-6 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 <VolunteerFilter
                     searchTerm={searchTerm}
@@ -77,7 +75,6 @@ export default function VolunteerContainer() {
                 <VolunteerList volunteers={volunteers} loading={loading} />
             </div>
 
-            {}
             {!loading && volunteers.length > 0 && pagination && (
                 <Pagination
                     currentPage={currentPage}
